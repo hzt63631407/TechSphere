@@ -1,9 +1,0 @@
-
-
-
-d = {"129":"outerHeight","4":"screenTop","133":"appName","5":"doNotTrack","134":"appVersion","6":"userId","7":"fzqh","9":"elementString","137":"webdriver","10":"audioString","139":"canvasEmptyToDataURL","11":"phantomJS","140":"innerWidth","13":"clientHeight","142":"browserFormUa","14":"fzqjs","16":"osVersionFormUa","145":"height","19":"cookieEnabled","148":"headlessChrome","20":"screenLeft","150":"gpu","154":"nightmareJS","27":"jshook","156":"errorStack","157":"availHeight","30":"innerHeight","158":"xxid","31":"languages","32":"location","33":"webglString","35":"enumerateDevicesString","164":"hardwareConcurrency","39":"appCodeName","167":"functionLength","40":"windowChrome","41":"iframeChrome","42":"toString","171":"canvas","45":"canvasToDataURLString","46":"screen","176":"osFormUa","179":"splash","51":"zombie","180":"mimeTypes","181":"width","182":"enumerateDevice","54":"fonts","184":"clientWidth","56":"cpuClass","185":"cssAttribute","187":"adblock","59":"audioRipple","189":"osCpu","61":"sessionStorage","62":"osType","190":"timezone","63":"availWidth","64":"downlink","193":"maxTouchPoints","66":"appKey","194":"checkBrowser","67":"browserVersionFormUa","68":"outerWidth","196":"selenium","69":"plugins","197":"websocketError","72":"webgl","73":"inject","74":"colorDepth","75":"ethernetIp","76":"incognito","77":"audioContext","81":"screenX","84":"infinity","86":"touch","87":"canvasPixel","88":"debugStatus","91":"rtcString","94":"evalLength","97":"connectionType","100":"battery","101":"mediaMinWidth","103":"screenY","104":"userAgent","105":"timestamp","106":"platform","110":"deviceMemory","111":"navigatorKeys","112":"buildID","114":"clientKernel","116":"clientId","124":"devicePixelRatio","125":"localStorage","126":"pluginsString","127":"productSub"}
-
-
-
-print(sorted(d.items(), key=lambda x: int(x[0])))
-
