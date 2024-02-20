@@ -1,0 +1,142 @@
+Throwable
+1.Error
+Java内部错误发生的异常，Java虚拟机产生异常，Error类表示内部错误，这类错误使我们无法控制的，
+内存溢出：OutOfMemoryError
+
+
+2.Exception
+2.1编译时期异常，如果出现比较明显的异常就必须对异常进行处理，
+否则程序无法通过编译，也叫必检异常。
+
+Exception及其子类(除了RuntimeException)
+1.IOException
+2.FileNotFoundException
+3.NumberFormatException ：数值类型的格式错误；
+
+这些异常需要进行捕获，使用throws关键字声明抛出异常，让调用者对其处理。
+
+
+
+
+因为Java的异常是class，它的继承关系如下：
+
+                     ┌───────────┐
+                     │  Object   │
+                     └───────────┘
+                           ▲
+                           │
+                     ┌───────────┐
+                     │ Throwable │
+                     └───────────┘
+                           ▲
+                 ┌─────────┴─────────┐
+                 │                   │
+           ┌───────────┐       ┌───────────┐
+           │   Error   │       │ Exception │
+           └───────────┘       └───────────┘
+                 ▲                   ▲
+         ┌───────┘              ┌────┴──────────┐
+         │                      │               │
+┌─────────────────┐    ┌─────────────────┐┌───────────┐
+│OutOfMemoryError │... │RuntimeException ││IOException│...
+└─────────────────┘    └─────────────────┘└───────────┘
+                                ▲
+                    ┌───────────┴─────────────┐
+                    │                         │
+         ┌─────────────────────┐ ┌─────────────────────────┐
+         │NullPointerException │ │IllegalArgumentException │...
+         └─────────────────────┘ └─────────────────────────┘
+从继承关系可知：Throwable是异常体系的根，它继承自Object。
+Throwable有两个体系：Error和Exception，Error表示严重的错误，程序对此一般无能为力，例如：
+
+OutOfMemoryError：内存耗尽
+NoClassDefFoundError：无法加载某个Class
+StackOverflowError：栈溢出
+而Exception则是运行时的错误，它可以被捕获并处理。
+
+某些异常是应用程序逻辑处理的一部分，应该捕获并处理。例如：
+
+NumberFormatException：数值类型的格式错误
+FileNotFoundException：未找到文件
+SocketException：读取网络失败
+还有一些异常是程序逻辑编写不对造成的，应该修复程序本身。例如：
+
+NullPointerException：对某个null的对象调用方法或字段
+IndexOutOfBoundsException：数组索引越界
+Exception又分为两大类：
+
+RuntimeException以及它的子类；
+非RuntimeException（包括IOException、ReflectiveOperationException等等）
+Java规定：
+
+必须捕获的异常，包括Exception及其子类，但不包括RuntimeException及其子类，这种类型的异常称为Checked Exception。
+
+不需要捕获的异常，包括Error及其子类，RuntimeException及其子类。
+
+
+
+java  throws关键字是跟在方法名之后的，一个thrwos后面可以跟至少一个的异常类型，
+
+它的作用是：当前方法可能会抛出异常，但是不知道如何处理该异常，就将该异常交由调用这个方法的的上一级使用者处理，
+
+如果main方法也不知道如何处理这个异常的时候，就会交由JVM来处理这个异常，JVM的做法是：打印异常的跟踪栈消息，并终止程序。
+
+https://blog.csdn.net/dilixinxixitong2009/article/details/78411292
+
+
+
+public static void func2(int a) {
+   if(a == 0) {
+   //抛出的是一个指定的异常，最多的使用方式是，抛出一个自定义的异常
+            throw new RuntimeException("a==0");
+        }
+    }
+    public static void main(String[] args) {
+        func2(0);
+    }
+
+
+2.2程序也能编译通过，只是在运行过程中可能报错。
+RuntimeException
+1.NullPointerException
+2.IndexOutofException
+3.ClassCastException
+
+这些异常是程序逻辑编写不对造成的，应该修复程序本身
+public static void main(String[] args) {
+    try {
+        int[] array = null;
+        System.out.println(array.length);
+    }catch (NullPointerException e) {
+        System.out.println("捕获到了一个空指针异常！");
+    }
+    System.out.println("其他程序！");
+}
+
+
+
+26.Java中Exception和Error有什么区别？
+Error类和Exception类的父类都是throwable类，他们的区别是：
+
+Error类一般是指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢等。对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止。
+
+Exception类表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常。
+
+Exception类又分为运行时异常（Runtime Exception）和受检查的异常(Checked Exception )，运行时异常;ArithmaticException,IllegalArgumentException，编译能通过，但是一运行就终止了，程序不会处理运行时异常，出现这类异常，程序会终止。而受检查的异常，要么用try。。。catch捕获，要么用throws字句声明抛出，交给它的父类处理，否则编译不会通过。
+
+常见的异常;
+
+ArrayIndexOutOfBoundsException 数组下标越界异常，
+
+ArithmaticException 算数异常 如除数为零
+
+NullPointerException 空指针异常
+
+IllegalArgumentException 不合法参数异常
+
+
+27.throw和throws有什么区别？
+1、Throw用于方法内部，Throws用于方法声明上
+2、Throw后跟异常对象，Throws后跟异常类型
+3、Throw后只能跟一个异常对象，Throws后可以一次声明多种异常类型
+

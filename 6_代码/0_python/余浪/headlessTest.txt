@@ -1,0 +1,90 @@
+风险检测能力测试：
+1、正常浏览器
+    修改UA及jshook测试：见 test.txt
+
+
+2、无头浏览器的测试
+2.1、安装使用：pip或npm (先按2.2 解压测试脚本文件 webDeid.tgz 后，进入各自目录安装)
+nightmare:
+    npm install nightmare
+    node nightmareTest.js
+phantomjs:
+    https://phantomjs.org/download.html
+    ./phantomjs/bin/phantomjs.exe phantomjsTest.js
+playwrigh:
+    npm install playwright
+    node playwrighTest.js
+puppeteer:
+    npm install puppeteer
+    node puppeteerTest.js
+selnium:
+    pip3 install selenium
+    python3 seleniumTest.py
+splash:
+    docker pull scrapinghub/splash
+    docker run -d --name=splash -p 8050:8050 scrapinghub/splash
+    浏览器打开：http://127.0.0.1:8050
+    复制 splashTest.txt 执行
+zombie:
+    npm install zombie
+    node zombieTest.js
+
+2.2、脚本文件，终端中执行如下命令
+cat > test.txt << EOF
+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
+Kqqoom8M/Rc5VmSNAFAAAA==
+EOF
+base64 -d test.txt > webDeid.tgz
+tar -zxvf webDeid.tgz

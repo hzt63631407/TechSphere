@@ -1,0 +1,18 @@
+Set用于存储不重复的元素集合，它主要提供以下几个方法：
+
+将元素添加进Set<E>：boolean add(E e)
+将元素从Set<E>删除：boolean remove(Object e)
+判断是否包含元素：boolean contains(Object e)
+
+
+
+
+HashSet和TreeSet有什么区别？
+HashSet不允许保存重复对象，这个重复是有自己定义的。比如需要保存People对象，
+People类包含名字和年龄两个属性，你可以在People类中重写equals和hashCode方法，
+指明姓名和年龄都相等的People对象是相等的，那么就不能重复存入姓名和年龄相等的People对象。
+HashSet中的对象没有顺序。TreeSet保存的对象有顺序性，也有不可重复性。
+顺序性有两种方法实现，一个是类实现Comparable接口；
+另一个是构造比较器，将比较器对象作为TreeSet的构造函数的参数传入。
+顺序性和不可重复性都是在compareTo()方法中实现的，当按年龄排序时，
+先比较年龄，年龄相等再比较姓名，姓名相等则不存入。

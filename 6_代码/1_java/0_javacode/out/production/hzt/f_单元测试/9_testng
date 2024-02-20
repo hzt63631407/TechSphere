@@ -1,0 +1,92 @@
+
+1.注解
+前提条件注解
+@BeforeSuite – 在此套件中的所有测试运行之前，带注释的方法只会运行一次。
+@BeforeClass – 在当前类中的第一个测试方法被调用之前，带注释的方法只会运行一次。
+
+标记测试方法
+@Test 注释将方法标记为测试方法。
+
+后置条件注解
+@AfterTest – 注释方法将在属于 <test> 标签内的类的所有测试方法运行后运行。
+@AfterMethod -被注释的方法将通过@Test注释标记每个测试方法之后运行。
+
+执行顺序-Suite->Test->Class->Method
+@BeforeSuite@BeforeTest@BeforeClass@BeforeMethod
+@Test@AfterMethod@AfterClass@AfterTest@AfterSuite
+
+
+
+2.testng.xml
+可以创建测试套件、创建测试组、标记并行执行的测试、
+添加侦听器以及将参数传递给测试脚本。
+我们还可以使用这个 testng.xml
+文件从命令提示符/终端或 Jenkins 触发测试套件。
+
+
+
+3.断言
+硬断言，如果脚本运行断言失败，马上停止运行，后面代码将不会被执行。
+assertTrue（布尔条件，字符串消息）
+assertEquals(String actual, String expected, String message)
+
+软断言，如果运行断言失败，不会停止运行，
+会继续执行这个断言下的其他语句或者断言，不影响其他断言的运行。
+SoftAssert类为软断言
+还需要再加入软断言中的一个方法assertAll()。
+只要测试方法中有一个断言是失败的，assertAll()将判定这一条测试用例执行失败。
+
+
+
+4.优先级
+测试的默认优先级为整数值 0
+设置测试用例的优先级：@Test(priority=1)
+
+
+
+5.循环
+@Test(invocationCount = 10)
+
+
+
+6.数据驱动
+利用@DataProvider可以做数据驱动
+数据源文件可以是EXCEL，XML，YAML，甚至可以是TXT文本。
+
+
+
+7.工厂方法
+@Factory
+对于某一个测试用例或方法，我们需要输入多个测试数据进行测试，
+并且这些测试数据可以是有一定关系
+
+@Factory更适合于同一类型的参数变化性的测试，
+那么如果参数值没有特定的规律时，
+我们可以采用@Factory和@DataProvider相结合的方式进行测试
+
+
+
+8.监听器
+@Listeners
+一旦某个事情发生了，监听器就会知道这个事情是什么动作引发的，
+不同的引发动作，监听器的处理方式不一样。
+用例成功，监听器执行什么操作
+用例失败，监听器执行什么操作
+
+
+
+9.并行运行
+同一个testng.xml文件中，指定并行级别：methods、tests、classes、instances
+如：<suite name="My suite" parallel="methods" thread-count="5">
+
+hread-count="{您要同时运行的线程数}"。
+<suite name="ArtOfTestingTestSuite" parallel="methods" thread-count="5">
+
+
+
+10.报告生成
+自带的，在test-output生成报告
+ReportNG，在testng.xml中配置监听，在POM.xml文件中添加ReportNG的依赖。
+
+
+

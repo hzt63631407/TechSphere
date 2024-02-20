@@ -1,0 +1,47 @@
+# 给定由一些正数（代表长度）组成的数组 nums ，返回
+# 由其中三个长度组成的、面积不为零的三角形的最大周长 。
+# 如果不能形成任何面积不为零的三角形，返回 0。
+
+# 示例 1：
+# 输入：nums = [2,1,2]
+# 输出：5
+# 解释：你可以用三个边长组成一个三角形:1 2 2。
+# 示例 2：
+
+# 输入：nums = [1,2,1,10]
+# 输出：0
+# 解释：
+# 你不能用边长 1,1,2 来组成三角形。
+# 不能用边长 1,1,10 来构成三角形。
+# 不能用边长 1、2 和 10 来构成三角形。
+# 因为我们不能用任何三条边长来构成一个非零面积的三角形，所以我们返回 0。
+
+l1 = [2,1,2]
+l2 = [1,2,1,10]
+l3 = [1,3,3,10]
+
+def istrue(l):
+	ans = 0
+	if len(l) < 3:
+		return 0
+	if len(l) == 3:
+		if l[0] > l[1] + l[2] or l[1] > l[0] + l[2] or l[2] > l[0] + l[1]:
+			return 0
+		else:
+			return l[0]+l[1]+l[2]
+	if len(l) > 3:
+		l.sort()
+		for i in range(len(l)):
+			left = i + 1
+			right = len(l) - 1
+			while left < right:
+				if l[i] + l[left] > l[right]:
+					ans = l[i] + l[left] + l[right]
+					left = left + 1
+				else:
+					right = right - 1
+	return ans
+
+print(istrue(l1))
+print(istrue(l2))
+print(istrue(l3))

@@ -1,0 +1,109 @@
+spring课程
+https://ke.qq.com/course/419067/3580993407968507#term_id=100500050
+
+
+1.定义
+Spring Boot 是 Spring 开源组织下的子项目，是Spring组件一站式解决方案，
+主要是简化了使用 Spring 的难度，简省了繁重的配置，
+提供了各种启动器，开发者能快速上手。
+
+Spring 和 SpringMVC 的问题在于需要配置大量的参数。
+
+(本质是应用开发框架)
+
+
+
+2.spring boot的优点
+2.1大量的自动配置，简化开发，也可修改默认值
+自动配置
+实现：SpringBoot自动配置就是通过注解来对一些常规的配置做了默认配置，
+简化了各种xml的配置内容
+核心注解为：@SpringBootApplication，主要包括三个注解
+@SpringBootConfiguration():代表当前是一个配置类
+@EnableAutoConfiguration(): 启动自动配置
+@ComponentScan()：指定扫描哪些Spring注解
+2.2嵌入的Tomcat
+2.3使用JavaConfig有助于避免使用XML。
+
+
+
+3.创建方式
+3.1file>new>project，选择Spring Initializr（脚手架）
+3.2maven工程，添加依赖
+
+
+38 运行 Spring Boot 有哪几种方式？
+1）打包用命令或者放到容器中运行
+2）用 Maven/ Gradle 插件运行
+3）直接执行 main 方法运行
+
+
+
+启动流程；
+首先，Spring Boot项目创建完成
+会默认生成一个名为 *application 的入口类，
+我们是通过该类的main方法启动Spring Boot项目的。
+在main方法中，通过Springapplication的静态方法，
+即run方法进行Springapplication类的实例化操作
+然后再针对实例化对象调用另外一个run方法来完成整个项目的初始化和启动。
+
+
+
+4.核心配置文件
+bootstrap.properties/yml
+boostrap 由父 ApplicationContext 加载的，比applicaton优先加载，
+配置在应用程序上下文的引导阶段生效。
+一般来说我们在 SpringCloud Config 或者Nacos中会用到它。
+且boostrap里面的属性不能被覆盖；
+
+application.properties/yml
+application (.yml或者.properties)：
+由ApplicatonContext 加载，用于 SpringBoot项目的自动化配置。
+
+
+
+RequestMapping 和 GetMapping 的不同之处在哪里？
+RequestMapping 具有类属性的，
+可以进行 GET,POST,PUT 或者其它的注释中具有的请求方法。
+GetMapping 是 GET 请求方法中的一个特例。
+它只是 ResquestMapping 的一个延伸，目的是为了提高清晰度。
+
+
+
+5.Spring Boot 注解
+https://www.jianshu.com/p/f457a575e155
+https://blog.csdn.net/J080624/article/details/53536321
+
+5.1定义/注入bean的注解
+@Component标明带该注解的类是“组件”。
+@Bean相当于XML中的,放在方法的上面，而不是类，意思是产生一个bean,并交给spring管理；
+@Controller标明当前组件是一个“Controller”，通常与@RequestMapping注解配合使用。
+@Service用于标注业务层组件；
+@Repository用于标注数据访问组件，即DAO组件；
+@ResponseBody:表示该方法的返回结果直接写入HTTP response body中，
+一般在异步获取数据时使用，在使用@RequestMapping后，返回值通常解析为跳转路径.
+@RequestBody:
+参数前加上这个注解之后，认为该参数必填。表示接受json字符串转为对象 List等；
+@Configuration:指出该类是 Bean 配置的信息源，相当于XML中的，一般加在主类上
+@EnableAutoConfiguration:
+让 Spring Boot 根据应用所声明的依赖来对 Spring 框架进行自动配置，一般加在主类上；
+@RequestMapping是一个用来处理请求地址映射的注解，可用于类或方法上。
+@GetMapping、@PostMapping等:相当于@RequestMapping.
+@RequestParam:用在方法的参数前面。相当于 request.getParameter；
+@ControllerAdvice:包含@Component。可以被扫描到。统一处理异常；
+@ExceptionHandler(Exception.class):用在方法上面表示遇到这个异常就执行以下方法
+@EnableEurekaServer:用在springboot启动类上，表示这是一个eureka服务注册中心；
+@EnableDiscoveryClient:
+用在springboot启动类上，表示这是一个服务，可以被注册中心找到；
+@EnableConfigServer:
+用在启动类上，表示这是一个配置中心，开启Config Server；
+
+
+@SpringCloudApplication:
+包含
+@SpringBootApplication
+@EnableDiscovertyClient
+@EnableCircuitBreaker
+分别是SpringBoot注解、注册服务中心Eureka注解、断路器注解。
+
+

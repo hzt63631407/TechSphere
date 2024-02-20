@@ -1,0 +1,92 @@
+
+总结：
+有重复的数组排序			用dict
+子序列，子串   			可以考虑双指针或者滑动窗口
+动态规划					递归，一般知道前面的值，求出最后值
+单调栈					最后需要是有顺序的
+
+
+数据结构-二分查找
+def sort(arr,num):
+    i,j = 0,len(arr)-1
+    while i<=j:
+        mid = (i+j) // 2
+        if arr[mid]<num:
+            i = mid+1
+        elif arr[mid]>num:
+            j = mid-1
+        else:
+            return True
+    return False
+注意判断条件：while i<=j
+
+冒泡排序
+def bubble_sort(lst):
+    n = len(lst)
+    for i in range(n):
+        for j in range(1, n - i):
+            if lst[j - 1] > lst[j]:
+                lst[j - 1], lst[j] = lst[j], lst[j - 1]
+    return lst
+
+选择排序
+def bubble_sort(lst):
+    n = len(lst)
+    for i in range(n-1):
+        for j in range(i,n):
+            if lst[i] > lst[j]:
+                lst[i], lst[j] = lst[j], lst[i]
+    return lstF
+
+print(bubble_sort([1,2,3,4,1,2]))
+
+快速排序
+（二分排序，分治思想）
+# 先找第一个个值，分割成三个数组，进行排序
+nums = [5,3,6,4,1,2,8,7]
+def QuickSort(num):
+    if len(num) <= 1: #边界条件
+        return num
+    key = num[0] #取数组的第一个数为基准数
+    llist,rlist,mlist = [],[],[key] #定义空列表，分别存储小于/大于/等于基准数的元素
+    for i in range(1,len(num)): #遍历数组，把元素归类到3个列表中
+        if num[i] > key:
+            rlist.append(num[i])
+        elif num[i] < key:
+            llist.append(num[i])
+        else:
+            mlist.append(num[i])
+    return QuickSort(llist)+mlist+QuickSort(rlist) #对左右子列表快排，拼接3个列表并返回
+print(QuickSort(nums))
+
+
+# 归并排序
+归并排序（英语：Merge sort，或mergesort），是创建在归并操作上的一种有效的排序算法。
+该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。
+
+分治法:
+分割：递归地把当前序列平均分割成两半。
+集成：在保持元素顺序的同时将上一步得到的子序列集成到一起（归并）。
+
+def merge_sort(lst):
+    def merge(left,right):
+        i = 0
+        j = 0
+        result = []
+        while i < len(left) and j < len(right):
+            if left[i] <= right[j]:
+                result.append(left[i])
+                i += 1
+            else:
+                result.append(right[j])
+                j += 1
+        result = result + left[i:] + right[j:]
+        return result
+    n = len(lst)
+    if n <= 1:
+        return lst
+    mid = n // 2
+    left = merge_sort(lst[:mid])
+    right = merge_sort(lst[mid:])
+    return merge(left,right)
+

@@ -1,0 +1,70 @@
+
+1.本质
+IO流的本质是数据传输，并且流是单向的。
+
+
+
+2.字节/字符流
+四大首领均是抽象类
+
+2.1字节流
+以字节为单位进行读写 1字节(byte) = 8位(bit)。
+字节流能处理所有类型的数据（如图片、avi等）
+字节数据经过指定编码转换成字符。
+
+字节输入流Reader
+CharReader、StringReader 是两种基本的介质流，它们分别将Char数组、String中读取数据。
+PipedInputReader 是从与其他线程共用的管道中读取数据。
+BuffereReader 很明显的是一个装饰器，它和其子类复制装饰其他Reader对象。
+
+
+字节输入流 InputStream（读）
+ByteArrayInputStream、StringBufferInputStream、FileInputStream
+是三种基本的介质流，它们分别从Byte数组、StringBuffer、和本地文件中读取数据，
+PipedInputStream是从与其他线程共用的管道中读取数据。
+
+
+
+2.2字符流
+以字符为单位进行读写 1字符 = 2字节
+字符流只能处理字符类型的数据。
+因为数据编码的不同，而有了对字符进行高效操作的流对象，
+本质上其实就是对于字节流的读取时，去查了指定的码表。
+
+字节输出流Writer
+CharArrayWriter、StringWriter 是两种基本的介质流，
+它们分别向Char 数组、String 中写入数据。
+PipedInputWriter 是从与其他线程共用的管道中读取数据。
+BuffereWriter 很明显是一个装饰器，他和其子类复制装饰其他Reader对象。
+
+字节输出流 OutputStream（写）
+ByteArrayOutputStream、FIleOutputStream是两种基本的介质，
+它们分别向Byte 数组，和本地文件中写入数据。
+PipedOutputStream是从与其他线程共用的管道中写入数据。
+
+
+
+3.阻塞io/非阻塞io
+https://blog.csdn.net/weixin_39542889/article/details/114091128
+https://blog.csdn.net/fengyuwuzu0519/article/details/52489350
+
+典型的阻塞IO模型的列子为：data = socket.read()
+在阻塞模式下，若从网络流中读取不到指定大小的数据量，阻塞IO就在那里阻塞着。
+比如，已知后面会有10个字节的数据发过来，
+但是我现在只收到8个字节，那么当前线程就在那傻傻地等到下一个字节的到来，
+对，就在那等着，啥事也不做，直到把这10个字节读取完，这才将阻塞放开通行。
+
+
+非阻塞IO模型：while（true）{
+data = socket,read();
+if(data != error){
+处理数据
+break;
+}
+}
+对于非阻塞IO有一个问题，那就是在while循环中需要不断地去询问内核数据是否就绪，
+在非阻塞模式下，若从网络流中读取不到指定大小的数据量，非阻塞IO就立即通行。
+比如，已知后面会有10个字节的数据发过来，但是我现在只收到8个字节，
+那么当前线程就读取这8个字节的数据，读完后就立即返回，
+等另外两个字节再来的时候再去读取。这样就会导致COU占用率非常高，
+因此一般情况下很少使用while这种循环方式读取数据。

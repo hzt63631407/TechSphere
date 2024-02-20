@@ -1,0 +1,23 @@
+
+https://www.cnblogs.com/Zzbj/p/16636384.html
+https://www.cnblogs.com/alsf/p/5626384.html
+
+throw 则是用来抛出一个具体的异常类型。
+
+throws 用来声明一个方法可能产生的所有异常，可以跟多个异常类名，用逗号隔开 ，
+表示抛出异常，由该方法的调用者来处理。
+throws表示出现异常的一种可能性，并不一定会发生这些异常。
+
+ 
+
+小结
+
+1.throw是语句抛出一个异常，throws是方法可能抛出异常的声明
+
+2.throws出现在方法函数头，而throw出现在函数体
+
+3.throw是指抛出一个异常的动作，而throws代表一种状态，指的是可能有异常抛出。
+
+4.throw只能用于抛出一种异常，而throws可以抛出多个异常。
+
+

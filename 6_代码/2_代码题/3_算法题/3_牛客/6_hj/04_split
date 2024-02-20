@@ -1,0 +1,19 @@
+
+
+•输入一个字符串，请按长度为8拆分每个输入字符串并进行输出；
+
+•长度不是8整数倍的字符串请在后面补数字0，空字符串不处理。
+
+输入：abc
+输出：abc00000
+
+while True:
+    try:
+        a = input()
+        while(len(a) >= 8):
+            print(a[:8])
+            a = a[8:]
+        if len(a) > 0:
+            print(a + '0'*(8 - len(a)))
+    except:
+        break

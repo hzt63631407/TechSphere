@@ -1,0 +1,34 @@
+
+一、JDK、JRE、JVM分别是什么
+
+JDK，全称Java Development Kit，是 Java 语言的软件开发工具包，
+主要用于移动设备、嵌入式设备上的Java应用程序。JDK是整个Java开发的核心。
+
+JRE，全称Java Runtime Environment，是指Java的运行环境，
+是可以在其上运行、测试和传输应用程序的Java平台。
+
+JVM，全称Java Virtual Machine（Java虚拟机），
+是一种用于计算设备的规范，它是一个虚构出来的计算机，引入JVM后
+，Java语言在不同平台上运行时不需要重新编译。JVM是Java跨平台的核心。
+
+
+什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？
+Java虚拟机是一个可以执行Java字节码的虚拟机进程。
+Java源文件被编译成能被Java虚拟机执行的字节码文件。
+
+
+JDK包含了Java的运行环境（即JRE）和Java工具。
+JRE包含了一个Java虚拟机（JVM）以及一些标准的类别函数库。
+总的来说，JDK、JRE、JVM三者都处在一个包含关系内，JDK包含JRE，
+而JRE又包含JVM。
+
+具体地讲：
+JDK = JRE + 开发工具集（例如Javac编译工具等）
+JRE = JVM + Java SE标准类库
+
+
+java源码：
+https://blog.csdn.net/fygu18/article/details/81295187
+
+java性能优化
+https://blog.csdn.net/qq_42894896/article/details/82256770

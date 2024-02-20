@@ -1,0 +1,59 @@
+1.maven课程概述
+不用下载jar包
+
+3.//mvn clean install 安装java包到本地仓库中 会重新编译打包 运行pom的文件的class
+
+4.多个maven项目 可以导其他maven的包 3-1
+
+5.仓库是管理坐标和构建的
+groupdId artifactId
+
+6.完整的项目构建过程包括
+清理、编译、测试、打包、集成测试、验证、部署
+maven生命周期 三套生命周期相互独立
+clean 清理项目
+default 构建项目
+site 生存项目站点
+
+7.maven插件 提供额外的功能
+如：source插件 可以提供讲项目源码打包功能
+ <plugins>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <configuration>
+                    <protocArtifact>
+                        com.google.protobuf:protoc:3.1.0:exe:${os.detected.classifier}
+                    </protocArtifact>
+                    <pluginId>grpc-java</pluginId>
+                    <pluginArtifact>
+                        io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}
+                    </pluginArtifact>
+                </configuration>
+插件运行的时机《pashe》
+                             <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compile-custom</goal>
+                        </goals>
+                    </execution>
+
+maven——添加插件和添加依赖有什么区别？
+依赖：运行时开发时都需要用到的jar包，比如项目中需要一个Json的jar包，就要添加一个依赖，这个依赖在项目运行时也需要，因此在项目打包时需要把这些依赖也打包进项目里；
+
+插件：在项目开的发时需要，但是在项目运行时不需要，因此在项目开发完成后不需要把插件打包进项目中，比如有个可以自动生成getter和setter的插件，嗯对~这就是插件了，因为这玩意在编译时生成getter和setter，编译结束后就没用了，所以项目打包时并不需要把插件放进去~   
+
+8.maven依赖和improt依赖
+https://ask.csdn.net/questions/713441
+《excludes》排除依赖         
+
+
+1.首先该项目就必须为maven项目，maven项目可以这样去想，就是在java项目和web项目的上面包裹了一层maven，
+本质上java项目还是java项目，web项目还是web项目，
+但是包裹了maven之后，就可以使用maven提供的一些功能了(通过pom.xml添加jar包)
+2.java 使用其他功能时，需要导入第三方jar包时
+（不用.java文件 jar可能含有其他资源 查看jar的类和方法通过文档方式）
+3.使用maven时，项目不需要导入jar包（或者.java），
+配置好就可以，maven会直接从本地库或者互联网上获取对应的类。
