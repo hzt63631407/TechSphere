@@ -1,0 +1,87 @@
+
+
+
+
+命令
+1.文件
+    1.1文件路径
+    1.2文件查找
+    1.3文件查看
+    1.4文件处理
+    1.5文件编辑
+2.系统
+3.网络
+
+
+1.1.文件路径
+cd ls pwd
+
+
+1.2.文件查找
+find / -name python
+grep
+
+
+1.3.文件处理
+mkdir cp  mv
+tar -zxvf file
+zip file
+chmod 777 文件名
+
+
+1.4.文件查看
+cat
+more  less
+
+more -12  -号 限制每页次数每页限制显示12行
+more +20  +号 从第20行开始显示 testfile 之档案内容   可以获取到某一行，因为是从那一行开始显示
+
+less 文件名	查看文件
+less 文件名 | grep -n 查找内容	根据内容过滤显示,并显示行号
+
+head /etc/passwd    默认前10行
+head -n 3 获取前3行
+
+tail -2 file 获取最后2行
+tail -f -5 file  循环获取，相对于一个监视
+
+nl 文件名
+nl可以将输出的文件自动加上行号
+
+
+
+
+11.mkdir -p /home/root/docker
+mkdir -p xx/yy的好处就是一次可以创建多级文件夹，若xx文件夹不存在，
+则先创建xx文件夹，然后在xx文件夹下创建yy文件夹
+
+
+
+
+
+
+
+
+13.使用tar命令打包并压缩/root目录，然后移动到/tmp下，将其权限设置其他人只读。
+#tar –jcv /tmp/root.bz2 /root/*
+#chmod o+r /tmp/root.bz2
+tar zxvf metersphere-release-v1.0.3-offline.tar.gz
+
+
+
+
+
+
+查找相关
+5.find / -name
+全局 这个计算机
+find / -name game_center_enterance
+当前目录
+find . -name "*libc*"
+
+7.where python
+
+
+
+12.查找linux系统下以txt结尾，30天没有修改的文件大小大于20K同时具有执行权限的文件并备份到/data/backup/目录下。
+find / -name *.txt -mtime -30 –size +20k –a –perm /--x > /data/backup

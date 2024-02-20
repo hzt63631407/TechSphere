@@ -1,0 +1,27 @@
+
+
+
+
+一.创建线程
+写一个方法，用threading的方法调用
+继承threading类
+
+
+
+1.通过threading.Thread进行创建多线程
+import threading
+t = threading.Thread(target=target)
+t.start()
+t.join()
+
+
+
+2.通过继承threading.Thread，然后重写__init__方法和run方法：
+class myThread(threading.Thread):
+    def __init__(self, threadID, name, counter):
+
+thread1 = myThread(1, "Thread-1", 1)
+thread1.start()
+thread1.join()
+
+

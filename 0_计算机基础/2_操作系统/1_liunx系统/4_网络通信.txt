@@ -1,0 +1,73 @@
+
+
+
+
+
+3.1.网络相关
+连接 ssh scp
+在线安装用 yum
+重启数据库服务：systemctl restart mysql service
+
+
+
+
+10.scp命令
+从远处复制到本地（-r： 递归复制整个目录）
+scp -r root@192.168.120.204:/opt/soft/mongodb /opt/soft/
+上传本地文件到远程机器指定目录
+scp -r /opt/soft/mongodb root@192.168.120.204:/opt/soft/scptest
+https://www.runoob.com/linux/linux-comm-scp.html
+
+
+
+网络排查：
+1.测试是否可以访问某个域名
+ping 127.0.0.1如果测试成功，表明网卡、TCP/IP协议的安装、IP地址、子网掩码的设置正常。
+如果测试不成功，就表示TCP/IP的安装或设置存在有问题。
+
+ping www.baidu.com
+查看网络是否联通以及域名的ip地址是什么
+
+ping -c 5 www.rumenz.com
+5行之后退出
+
+Ping程序使用的是ICMP协议，ICMP不像http，FTP应用层有传输层的端口号，（它们使用TCP的端口号80和20/21）。
+Ping用到的是ICMP协议，不是端口。ICMP是位于网络层（第三层）的协议。
+ICMP是Internet控制报文协议，属于网络层协议。它是TCP/IP协议族的一个子协议。
+
+
+
+
+
+2.访问域名中的某个端口
+
+nc -vz 39.156.66.18 80
+
+a58@hzt /Applications % nc -vz 39.156.66.18 443
+Connection to 39.156.66.18 port 443 [tcp/https] succeeded!
+a58@hzt /Applications % nc -vz 39.156.66.18 80
+Connection to 39.156.66.18 port 80 [tcp/http] succeeded!
+a58@hzt /Applications % nc -vz 39.156.66.18 10
+^Z
+zsh: suspended  nc -vz 39.156.66.18 10
+
+
+telnet 192.168.1.33 6443
+
+
+curl  192.168.1.33:80
+
+
+
+
+3.访问域名
+curl -x 192.168.100.100:1080 http://www.baidu.com
+curl命令
+https://blog.csdn.net/Lakers2015/article/details/128627020
+
+
+
+
+
+4.netstat 命令查本机的端口
+https://blog.csdn.net/omaidb/article/details/120617942

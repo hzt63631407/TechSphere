@@ -1,0 +1,59 @@
+
+
+
+
+一.解释
+在电脑里面找一个东西，需要路径，才能启动，当你设置了环境变量，就不需要路径了，可以在任意目录启动。
+
+
+/usr/local/bin
+这个目录下有安装了很多环境
+node、docker、python等
+
+
+
+
+二、报错排查
+1.zsh: command not found: adb   报错
+https://www.jianshu.com/p/d5cab693c5d4
+
+
+
+2.解决mac安装homebrew后报错-bash: brew: command not found
+https://blog.csdn.net/li396864285/article/details/52572163
+（hoembrew安装
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+）
+
+
+
+3.Mac下homebrew的安装
+https://blog.csdn.net/boog14/article/details/80331073
+https://blog.csdn.net/muyimo/article/details/125211460
+https://blog.csdn.net/mp624183768/article/details/127011542
+export PATH="/opt/homebrew/bin:$PATH"
+
+
+
+4.mac中添加环境变量无效
+https://blog.csdn.net/hlllmr1314/article/details/52228672
+按照如上修改了~/.bash_profile文件发现无效，并且提示 zsh: command not found: homestead 那么肯定是安装了zsh的缘故，
+因为安装zsh，~/.bash_profile就不会被执行，解决办法如下：
+1.打开vim ~/.zshrc  将你要配置到环境变量配置到该文件中即可
+2.打开vim ~/.zshrc  添加source ~/.bash_profile ，这样~/.bash_profile配置的环境变量同样有效
+
+
+
+5.我的MAC可能在设置环境变量的时候设置错了，现在整个MAC的vi，ls等命令都执行不了了。
+https://zhidao.baidu.com/question/1755826278714933228.html
+1，在命令行中输入
+export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
+这样可以保证命令行命令暂时可以使用。命令执行完之后先不要关闭终端
+或者cd /usr/bin 下执行vi命令
+2. 恢复bash_profile文件
+vi ~/.bash_profile
+3. 很有可能是你的PATH 环境变量设置错误，比如 $PATH 漏了
+PATH=$PATH:$PATH1
+4. 立即生效，source ~/.bash_profile
+
+

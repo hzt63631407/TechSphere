@@ -1,0 +1,58 @@
+
+
+
+
+一、端口
+1.端口已经占用
+socket.error: [Errno 48] Address already in use
+https://www.logcg.com/archives/536.html
+https://blog.csdn.net/superdangbo/article/details/78815522
+
+
+
+2.查看端口
+https://blog.csdn.net/Hay54/article/details/78567855
+python3 -m weditor
+lsof -i:17310                                     # mac查看端口好是否被占用
+kill -9 [lsof查询结果]
+
+(如果不知道端口号，可以用grep进程)
+ps -ef|grep python |grep -v grep
+501 94286 94204   0  7:26PM ttys005    0:00.71 /Users/huangzetao/.pyenv/versions/3.6.5/bin/python3 -m weditor
+501 94311 94286   0  7:26PM ttys005    0:00.39 /Users/huangzetao/.pyenv/versions/3.6.5/bin/python3 -u /Users/huangzetao/.pyenv/versions/3.6.5/lib/python3.6/site-packages/weditor/web/handlers/../ipyshell-console.py
+
+lsof -i:17310
+python3.6 94286 huangzetao    8u  IPv4 0xb55d717ae5723cef      0t0  TCP *:17310 (LISTEN)
+python3.6 94286 huangzetao    9u  IPv6 0xb55d717ae5a1ecc7      0t0  TCP *:17310 (LISTEN)
+python3.6 94286 huangzetao   10u  IPv6 0xb55d717ac7df8cc7      0t0  TCP localhost:17310->localhost:57258 (ESTABLISHED)
+python3.6 94286 huangzetao   11u  IPv6 0xb55d717ae5a27327      0t0  TCP localhost:17310->localhost:57259 (ESTABLISHED)
+python3.6 94286 huangzetao   12u  IPv6 0xb55d717ae5a68667      0t0  TCP localhost:17310->localhost:57260 (ESTABLISHED)
+python3.6 94286 huangzetao   13u  IPv6 0xb55d717ae5ae1cc7      0t0  TCP localhost:17310->localhost:57261 (ESTABLISHED)
+python3.6 94286 huangzetao   14u  IPv6 0xb55d717ae5aeccc7      0t0  TCP localhost:17310->localhost:57262 (ESTABLISHED)
+
+ps -ef|grep nginx
+
+如果是(LISTEN)那么可以进行监听，可以用网页进行访问
+huangzetao@MacBook-Pro ~ % lsof -i:8180
+COMMAND     PID       USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Google     5517 huangzetao   30u  IPv4 0xd8623e80b31d581d      0t0  TCP localhost:51907->localhost:8180 (ESTABLISHED)
+Google     5517 huangzetao   33u  IPv4 0xd8623e80a9829245      0t0  TCP localhost:51908->localhost:8180 (ESTABLISHED)
+nginx     85664 huangzetao    6u  IPv4 0xd8623e80b31bc3cd      0t0  TCP *:8180 (LISTEN)
+nginx     85665 huangzetao    3u  IPv4 0xd8623e80b3b463cd      0t0  TCP localhost:8180->localhost:51907 (ESTABLISHED)
+nginx     85665 huangzetao    6u  IPv4 0xd8623e80b31bc3cd      0t0  TCP *:8180 (LISTEN)
+nginx     85665 huangzetao    9u  IPv4 0xd8623e80b31bec6d      0t0  TCP localhost:8180->localhost:51908 (ESTABLISHED)
+
+
+
+3.当访问域名的时候，http的端口默认指定的是80；
+而80端口在Linux系统下，1024之前的端口是只有root用户才能使用的，
+因此将，系统层面将端口80 映射到8080(系统层面，模拟nginx代理功能)
+
+应用层面，将开发的程序移动到web服务根目录下，将程序指定端口为8080
+重新启动web服务，OK！
+（80端口是服务器的端口，本地端口是随机的）
+
+
+
+
+

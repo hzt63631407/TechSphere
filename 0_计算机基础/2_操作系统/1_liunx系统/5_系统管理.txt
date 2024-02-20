@@ -1,0 +1,86 @@
+
+
+
+
+
+
+
+2.1.系统命令
+free查看内存
+top查看cpu
+df -h查看磁盘空间
+kill -9
+用ps -ef|grep java查看jdk进程是否启动如果服务器起不来，常见的问题有端口可能被占用，
+用netstat -an|grep 8080查看端口是否已被占用。
+lsof -i:17300      查看17300端口现在运行什么程序
+
+
+
+
+1.目录结构
+/bin - 基本命令的二进制文件。
+/boot - 引导加载程序的静态文件。
+/dev - 设备文件。
+/etc - 配置文件。
+/home - 普通用户主目录的父目录。
+/lib - 共享库文件。
+/lib64 - 共享64位库文件。
+/lost+found - 存放未链接文件。
+/media - 自动识别设备的挂载目录。
+/mnt - 临时挂载文件系统的挂载点。
+/opt - 可选插件软件包安装位置。
+/proc - 内核和进程信息。
+/root - 超级管理员用户主目录。
+/run - 存放系统运行时需要的东西。
+/sbin - 超级用户的二进制文件。
+/sys - 设备的伪文件系统。
+/tmp - 临时文件夹。
+/usr - 用户应用目录。
+/var - 变量数据目录。
+
+
+
+
+
+端口进程相关
+8.查看进程号
+以下这条命令是检查 java 进程是否存在：ps -ef |grep java
+UID     PID  PPID  C  STIME  TTY    TIME     CMD
+root      3121  2902  0   12:13   pts/5   00:00:00  grep --color=auto java
+PID：进程的ID，该程序的ID
+
+ps -ef|grep python |grep -v grep
+https://blog.csdn.net/Hay54/article/details/78567855
+
+python3 -m weditor
+lsof -i:17310
+kill -9 [lsof查询结果]
+
+(如果不知道端口号，可以用grep进程)
+ps -ef|grep python |grep -v grep
+501 94286 94204   0  7:26PM ttys005    0:00.71 /Users/huangzetao/.pyenv/versions/3.6.5/bin/python3 -m weditor
+501 94311 94286   0  7:26PM ttys005    0:00.39 /Users/huangzetao/.pyenv/versions/3.6.5/bin/python3 -u /Users/huangzetao/.pyenv/versions/3.6.5/lib/python3.6/site-packages/weditor/web/handlers/../ipyshell-console.py
+
+lsof -i:17310
+python3.6 94286 huangzetao    8u  IPv4 0xb55d717ae5723cef      0t0  TCP *:17310 (LISTEN)
+python3.6 94286 huangzetao    9u  IPv6 0xb55d717ae5a1ecc7      0t0  TCP *:17310 (LISTEN)
+python3.6 94286 huangzetao   10u  IPv6 0xb55d717ac7df8cc7      0t0  TCP localhost:17310->localhost:57258 (ESTABLISHED)
+python3.6 94286 huangzetao   11u  IPv6 0xb55d717ae5a27327      0t0  TCP localhost:17310->localhost:57259 (ESTABLISHED)
+python3.6 94286 huangzetao   12u  IPv6 0xb55d717ae5a68667      0t0  TCP localhost:17310->localhost:57260 (ESTABLISHED)
+python3.6 94286 huangzetao   13u  IPv6 0xb55d717ae5ae1cc7      0t0  TCP localhost:17310->localhost:57261 (ESTABLISHED)
+python3.6 94286 huangzetao   14u  IPv6 0xb55d717ae5aeccc7      0t0  TCP localhost:17310->localhost:57262 (ESTABLISHED)
+
+
+9.killall -9 java
+杀死java有关的进程 压测使用
+
+
+
+
+
+
+
+
+
+
+

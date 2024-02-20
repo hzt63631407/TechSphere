@@ -1,0 +1,34 @@
+
+
+
+
+
+
+根据 关键词 查找日志 并返回关键词所在的所有行：
+示例1：cat  api.log | grep "前端入参"　　# 返回log日志中包含“前端入参”字样的所有行
+示例2：tail  api.log | grep "前端入参"  # 返回log日志中包含“前端入参”字样的所有行
+
+akw 输出/显示比较多
+awk '{print $0}' 1.txt            #输出所有内容
+awk -F: 'NR==5{print}'  /etc/passwd                         //显示第5行
+awk -F: 'NR==5 || NR==6{print}'  /etc/passwd       //显示第5行和第6行
+
+
+sed 替换比较多
+（p表示正常输出，d删除，s替换）
+sed -n '5,8p' passwd       查看passwd文件的第5到第8行内容
+sed -n '/the/p' fbc.txt   #输出包含the的行
+sed -n '/^AI/p' fbc.txt   #输出以ai开头的行
+
+nl fbc.txt | sed -n '5d'    删除第5行
+nl fbc.txt | sed -n '5d'    删除第5行
+
+sed 's/the/The/g' fbc.txt  将the替换成The g代表全局
+
+https://blog.csdn.net/m0_58292366/article/details/124586128
+
+
+
+
+用什么命令对一个文件的内容进行统计？(行号、单词数、字节数)
+wc 命令 - c 统计字节数 - l 统计行数 - w 统计字数。
