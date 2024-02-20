@@ -1,0 +1,65 @@
+
+
+一、防火墙类型
+云主机防火墙设置和云主机操作系统的防火墙设置是两个不同层面的设置，满足两种不同的安全需求。
+
+云主机防火墙设置：通常是由云服务提供商提供的功能，在云服务提供商的管理控制台进行配置，
+这种防火墙工作在网络边界，用于控制哪些类型的流量可以进入或离开你的云服务器。
+检查和调整云主机防火墙设置方法因不同的云服务提供商而异。通常情况下，
+可以在云服务提供商的控制台找到防火墙或者安全组的设置选项，进行规则的添加、删除或者修改。
+
+云主机操作系统的防火墙/iptables 设置：这是在你的云主机操作系统级别设置的防火墙，
+使用的是操作系统的本地防火墙工具（如防火墙D，iptables等）。
+这些工具可以详细控制在操作系统级别哪些流量可以进入或离开。
+
+
+
+
+
+二、排查方法
+
+确认服务器是否设置了防火墙主要取决于你使用的服务器操作系统。以下是常见的一些方法：
+Linux系统：
+常见的两种防火墙配置方式：
+使用 iptables： 你可以通过命令 sudo iptables -L -n 查看防火墙规则。
+使用 firewalld：你可以通过命令 firewall-cmd --list-all 查看防火墙规则。
+
+
+[root@iZ2ze87mqkibecd2cft2qnZ ~]# sudo iptables -L -n
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination  
+
+
+
+
+（云主机操作系统防火墙排查）
+这是在使用 iptables -L -n 命令列出了服务器上 iptables 防火墙的所有规则。
+
+你看到的信息告诉你，iptables 已经设置了三个默认的链（链是一组防火墙规则的集合）：
+INPUT，FORWARD 和 OUTPUT。
+
+让我们看看这些链的含义：
+INPUT 链： 所有目标为服务器本身的数据包将会通过这个链的所有规则。
+FORWARD 链： 所有通过服务器路由的数据包（既不是发给服务器本身，也不是来自服务器的数据包）
+将会通过这个链的所有规则。
+OUTPUT 链： 所有由服务器本身发送的数据包将会通过这个链的所有规则。
+在每个链后面的 (policy ACCEPT) 表示默认策略是接受所有经过这个链的数据包。
+
+对于每个链，都有三个列 target prot opt source destination：
+target：匹配规则的行动，如接受（ACCEPT），拒绝（REJECT）或放行（DROP）数据包。
+prot：匹配规则的协议，如 TCP，UDP或 ICMP。
+source：匹配规则的源 IP 地址范围。
+destination：匹配规则的目标 IP 地址范围。
+在你提供的输出中，所有链为空，这意味着没有特定的防火墙规则设置，
+所有的进入、通过和离开的数据包都将被接受。
+这可能会带来安全风险，你应该根据实际需要来添加合适的防火墙规则。
+
+
+
+

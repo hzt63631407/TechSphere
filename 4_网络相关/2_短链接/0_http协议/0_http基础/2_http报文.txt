@@ -1,0 +1,52 @@
+
+1.http请求报文有几部分？
+http请求包括请求行，请求头，请求体
+
+请求报文(请求行/请求头/请求数据/空行)
+    请求行
+        求方法字段、URL字段和HTTP协议版本
+        例如：GET /index.html HTTP/1.1
+            get方法将数据拼接在url后面，传递参数受限
+        请求方法：
+            GET、POST、HEAD、PUT、DELETE、OPTIONS、TRACE、CONNECT
+    请求头(key value形式)
+        User-Agent：产生请求的浏览器类型。
+        Accept：客户端可识别的内容类型列表。
+        Host：主机地址
+    请求数据
+        post方法中，会把数据以key value形式发送请求
+    空行
+        发送回车符和换行符，通知服务器以下不再有请求头
+
+响应报文(状态行、消息报头、响应正文)
+    状态行
+    消息报头
+    响应正文
+
+
+
+2.返回报文也有header
+Set-Cookie
+服务端可以设置客户端的Cookie，其原理就是通过这个响应报文头属性实现的：
+
+Cache-Control
+响应输出到客户端后，服务端通过该报文头属告诉客户端如何控制响应内容的缓存。
+Cache-Control: max-age=3600
+
+
+
+
+3.http的Header和body
+httpheader主要来存放cookie 信息的
+httpbody主要用来存放post的一些数据，
+比如username ="xxxx"&password="124"还有就是要上传的图片的nsdata数据。
+
+Cookie是可以放到header里
+Cookie：header的一部分
+header：公用的信息
+pararm：参数，键值对，只能在浏览器，比较小
+body：任何信息，比较大
+
+
+
+

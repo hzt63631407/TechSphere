@@ -1,0 +1,38 @@
+
+
+
+
+1.adb shell monkey -p 包名 -v 10
+
+2.adb shell monkey 1000
+events 1000 完成了
+音量键 滑屏键 home键 截屏键
+
+3.获取包名 adb logcat | grep START
+
+4.指定包打压力
+adb shell monkey -p com.**.** 1000 很快
+
+5. 添加间隔时间
+adb shell monkey -p com.**.** --throttle 1000 100（1000毫秒）
+
+adb shell monkey -p com.smile.gifmaker --throttle 1000 100
+
+6.seed参数
+指定随机生成数的seed序列 两次一样
+adb shell monkey -p com.**.** -s 100 50
+adb shell monkey -p com.smile.gifmaker -s 1000 50
+
+7.触摸点击
+adb shell monkey -v -p com.xxx --pct-touch 100 100
+--motion
+总共10个事件
+
+8.忽略崩溃和异常
+adb shell monkey --ignore-crash
+
+忽略超时
+adb shell monkey --ignore-timeouts
+
+
+

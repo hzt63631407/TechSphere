@@ -1,0 +1,59 @@
+
+
+
+
+一、元素与元素组定位
+1. ResourceId 定位 ： driver(resourceId="com.meizu.mzbbs:id/tp").click()
+2. Text 定位 ： driver(text=" 精选 ").click()
+3. Description 定位 ： driver(description="..").click()
+4. ClassName 定位 ： driver(className="android.widget.TextView").click()
+5. xpath 定位 ： driver.xpath('xpath 路径 ').click()
+有相同的元素：加角标，中括号0，1
+
+
+
+
+二、动态元素，一般有两种。
+1.如果是元素id经常会变化，那么我们一般会有百分比定位,不同手机上是定位到同一个元素的
+2.如果是元素的位置是不固定或者元素时有时无
+那么我们一定会有显性等待的方式，就是设置一个循环时间，然后每隔一段时间进行请求
+
+
+
+
+三、三种等待方式
+https://blog.csdn.net/mingzizhenduo/article/details/119649770
+
+
+强制等待 time.sleep(5)
+
+隐性等待的语法：
+d.implicitly_wait(等待时长)  #单位是s
+整理下代码，加上隐性等待时长10s，隐性等待只需要加一次，全局通用。
+不管是等待第几个元素，等待时长都是10s，但是如果第一个元素是2s出现，第二个元素是5s出现，
+那么第一个元素实际等待时长只是2s，第二个只是5s，元素出现就会进行下一步操作，
+而不像强制等待一直要等够设置的时长。因此隐性等待相对比较节约时间
+
+description也称为"content-desc"，一般情况下它是唯一的
+
+显性等待
+定义：在某个已设定的特定条件中，等待XX秒，每XX秒监测一次，若已达特定条件，
+则跳入下一步操作，若超过最大等待时间，则抛异常。
+
+u2实现webview点击https://testerhome.com/topics/12599
+（可以设置默认，如果其他人有需求，提供替换方法）
+
+
+
+
+四、安卓获取xml控件树：
+https://blog.csdn.net/weixin_39930252/article/details/117487230
+
+
+
+
+
+
+
+
+

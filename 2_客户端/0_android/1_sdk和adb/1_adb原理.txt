@@ -1,0 +1,41 @@
+
+
+什么是adb
+adb的其实是Android调试桥，我们需要安装安卓的sdk，然后配置环境变量，
+实现手机端与电脑端的通信，能通过adb命令去监控安卓设备了。
+
+
+
+
+ADB工作原理
+https://www.jianshu.com/p/f635b492cc7c
+https://blog.csdn.net/mzl87/article/details/95938371
+
+pc端是adb server，手机是adb client。
+在手机上通过AndroidSDK提供的ADBclient与同样运行于PC中的ADBserver通信，
+再由ADBserver通过 USB 与位于设备中的 Adbd 通信。
+要实现一套无线化的方案，必须要摆脱对 USB 线的依赖。
+好在 Android 系统还提供了一种基于 Socket 的 ADB 连接模式，
+既然是这样，那么只需要按照ADB通信协议在端上与
+本机的5555端口进行通信即可获得ADBshell的执行能力。
+
+
+
+
+电脑和移动端之间沟通，adb
+移动设备和app沟通，aapt
+
+adb操作的是设备而不是app，aapt是相当于一个中介
+
+
+ADB（Android Debug Bridge）用于电脑和 Android 设备之间的通信和交互，
+它提供了一系列命令行操作，用于调试、安装应用、文件传输等任务。
+ADB 可以与 Android 设备建立连接，执行各种操作，
+如启动 Activity、发送模拟按键事件、访问设备的文件系统等。
+它是用于与 Android 设备进行通信的工具，不仅限于与电脑之间的通信。
+
+AAPT（Android Asset Packaging Tool）是一个用于处理和管理 Android 应用程序的资源文件的工具。
+它用于编译、打包和管理应用程序的资源，将它们编译为二进制格式，并将其打包到 APK 文件中。
+AAPT 还可以解析 APK 文件，提取应用程序的信息，如包名、版本号、权限列表等。
+AAPT 主要用于构建和管理应用程序的资源，而不是用于移动设备和应用之间的通信。
+

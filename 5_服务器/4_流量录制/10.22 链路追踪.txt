@@ -1,0 +1,25 @@
+
+日志分析平台:ELK（一般都是运维搭建，mq一般也是运维搭建）
+es:也是nosql数据库，存储功能
+logstash：采集数据
+kibana：查数据
+
+
+1.java应用启动时通过springboot传到logstash
+（java -logstash ····）
+2.其他的日志文件（例如：nginx，redis，mysql，mq）
+在需要监控日志的服务器上安装logstash，进行采集
+
+kibana这个工具就是为了查询es里边的数据
+
+
+
+skywalking：链路追踪，apm系统
+1.采集
+2.数据库     es
+3.看版
+启动时 java -agent 进行采集
+
+
+granfana通过可以配置webhooks发送通知
+

@@ -1,0 +1,29 @@
+
+
+
+
+1.源码AndroidManifest.xml中查看package包名
+需要且在manifest文件和build.gradle中要手动更改包名。
+
+
+2.Android Studio使用了一个默认的keystore文件帮我买自动进行了签名
+
+
+3.发布应用需要手动使用keystore进行签名，签名时填写信息，
+再申请开发者账号（如360开发者账号）发布到应用商店。
+
+
+4.反编译
+反编译：https://github.com/skylot/jadx
+
+
+
+5.adb shell dumpsys package com.kwai.allin.demo|grep versionCode
+
+versionCode：对消费者不可见的版本号，用于我们自己判断新旧版本，
+一般更新一次版本 versionCode 会增加。
+
+versionName：展示给消费者的版本号，代表应用程序的版本信息。
+
+
+

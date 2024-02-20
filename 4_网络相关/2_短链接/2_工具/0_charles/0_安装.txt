@@ -1,0 +1,56 @@
+
+1.安卓7以上抓不了https，个人证书不信用，需要系统证书
+2.手机和电脑证书是分开，抓手机，只用装手机的证书
+3.每一个电脑抓包都需要往手机装特定的证书
+
+
+
+1.charles电脑不用装证书
+（自己的手机装了证书用其他人的电脑）
+
+
+2.安装证书
+默认情况下，charles不能解析https协议的接口，
+里面的请求和响应数据都是乱码格式，所以我们需要下载ssl证书，来获取里面的数据
+
+（如果在用手机自带的浏览器下载出现错误，用uc浏览器进行下载）
+
+help——>ssl proxying
+
+第一种：打开 “设置” -> “WLAN” -> “高级设置” -> “安装证书”
+（第一种安装后可能不生效）
+
+第二种：“设置” -> “更多设置” -> “系统安全” -> “加密与凭据” -> “从存储设备安装”
+
+（一般用这种，如果安装了自己的手机）
+第三种：在应用管理里面搜pem 证书安装完成是pem 可以转成crt文件 直接打开
+
+
+
+3.安卓7以上手机，需要root
+https://blog.csdn.net/u010838555/article/details/104804695
+
+
+4.breakponits(可以编辑请求和返回的参数)
+设置断点——》Proxy ——>Breakpoint Settings
+(1)、把参数删掉，写*
+(2)、可修改请求
+(3)、可修改返回
+点击Execute （执行）。 另外 Abort （中止）， Cancel （取消）
+
+https://blog.csdn.net/f20052604/article/details/50867019
+
+
+5.学习网站
+https://blog.csdn.net/anualday/article/details/51423457
+https://www.jianshu.com/p/12ab7f45818a
+https://www.cnblogs.com/rayray/p/3729533.html
+
+
+6.手机可以同时安装2个证书
+  (自己电脑和快手mock)
+
+ios装charles证书 
+https://blog.csdn.net/qq_46022251/article/details/121653287
+
+

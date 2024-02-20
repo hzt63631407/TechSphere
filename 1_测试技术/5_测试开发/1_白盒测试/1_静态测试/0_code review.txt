@@ -1,0 +1,75 @@
+
+
+
+
+Q：如何做code review的，相当来说比较浅。
+快手有流水线，开发提了mr之后，
+我们在页面能够看到代码，能够进行评论，
+需要我们打标签才能合入。
+code review是我来做，安卓和服务器是我做的，oc不太懂。
+
+（出现问题的频率不高，好几个星期才出现一次）
+
+
+
+发现的问题：
+主要分为2类问题
+第一类是规范问题，比如说：
+1.命名不是很准确
+2.或者方法体过长，要进行拆分（应该才用总分的形式）
+
+第二类是逻辑错误，比如说：
+1.有没有判断空处理，public方法传入需要判空
+2.测试代码没有被删除
+3.缺少必要的注释或者日志
+4.内存优化，多创建了一些临时对象。（要少创建）
+一些文件资源或者视频资源，需要进行关闭，避免内存泄露）
+
+
+具体例子：
+有一个字符串需要进行拼接，不能创建string，
+然后再用+号进行拼接，内存占用过而不改多。
+创建StringBuffer对象，再用append方法。
+
+
+
+
+Code Review 需要关注什么？
+1.编码是否规范，命名是否简单易懂，方法体是否过长。
+2.有没有必要注释或者日志。
+3.健壮性检查，有没有判空，有没有容错。
+4.测试代码没有被删除。
+（5.一些文件资源或者视频资源，需要进行关闭，避免内存泄露）
+
+
+
+我们是按照阿里java开发编程规范：OOP规约
+https://blog.csdn.net/qq_45397526/article/details/122784569
+https://blog.csdn.net/qq_35634154/article/details/125780956
+https://www.doc88.com/p-6071500966100.html
+
+1.命名
+类名：ForceCode  方法名：localValue 常量：MAX_STOCK_COUNT
+2.代码格式 采用4个空格缩进，禁止使用Tab字符。
+括号换不换行
+ 1） 左大括号前不换行。
+ 2） 左大括号后换行。
+ 3） 右大括号前换行。
+3.OOP规约（面向对象编程规范）
+ 1）直接用类名来访问静态变量或静态方法
+ 2）所有的覆写方法，必须加@Override注解。
+ 3）当一个类有多个构造方法，或者多个同名方法，
+ 这些方法应该按顺序放置在一起，便于阅读。
+
+
+
+安卓code review
+https://www.jianshu.com/p/ed99726f3d95
+https://zhuanlan.zhihu.com/p/124258484
+https://blog.csdn.net/jun5753/article/details/93638997
+
+
+java code review：
+https://blog.csdn.net/weixin_44227650/article/details/124512032
+https://wenku.baidu.com/view/48b026f6142ded630b1c59eef8c75fbfc77d94c4.html?
+_wkts_=1675073581293&bdQuery=java%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83

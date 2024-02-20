@@ -1,0 +1,11 @@
+
+
+
+
+一.微信小程序自动化：minium
+小程序代码也是node.js
+安装需要开发者工具
+
+https://zhuanlan.zhihu.com/p/601239251?utm_id=0
+https://ke.qq.com/course/4156699/12140292001983771#term_id=104312500
+

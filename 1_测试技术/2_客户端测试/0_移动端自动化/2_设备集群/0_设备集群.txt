@@ -1,0 +1,45 @@
+
+
+
+
+一、ATX-Test：
+简介：UI自动化框架，PO模型，方便管理ui自动化项目代码
+https://testerhome.com/topics/11588
+项目地址：http://github.com/pengchenglin/ATX-Test
+
+
+
+
+二、atxserver2：
+简介：机型管理平台，可以实现多台手机群控
+项目地址：http://github.com/openatx/atxserver2
+文档:https://www.cnblogs.com/wangpenghui522/p/15414643.html
+https://zhuanlan.zhihu.com/p/341777786
+
+
+atxserver2 设备管理
+https://ke.qq.com/course/2960022#term_id=104530556
+有两个库，客户端和服务器
+1.从github下载 atxserver2库
+2.pip -r下载
+3.安装 rethinkdb 起数据库服务
+4.python main启动
+5.下载 atxserver2-android-prvider（可以部署多个，上传到server）
+6.pip -r下载
+7.安装 node.js
+8.npm install
+9.python main --server localhost:4000 将这台电脑上的设备上传
+
+
+
+
+三、socnic云真机比stf要好
+https://www.cnblogs.com/1026164853qqcom/p/11421439.html?ivk_sa=1024320u
+
+stf的原理
+服务器是由 nodejs+Rethinkdb
+通过socket进行通信
+手机端是安装 minicap+minitouch
+
+
+

@@ -1,0 +1,51 @@
+
+https://blog.csdn.net/weixin_29325515/article/details/113086723
+
+自己的电脑的mac是按照这个安装的
+https://www.jianshu.com/p/c64f59f0f65e
+密码：12345678 修改为 123456789
+
+mysql -u root -p
+
+账号
+www-data'@'localhost
+密码
+123456789
+
+
+查看mysql端口号
+方法一：还是在mysql的cmd下，输入：mysql>show global variables like 'port';
+方法二:打开mysql的 配置文件 my.ini进入后直接查看 port
+
+MySQL 默认的端口是3306，你当然可以写明使用这个端口
+如果你省略端口号，系统就用这个默认的端口号
+就像访问当前的网页地址
+你可以输入 ：http://zhidao.baidu.com/question/199467238.html
+也可以输入：http://zhidao.baidu.com:80/question/199467238.html
+
+
+
+
+
+mysql管理软件
+https://www.zhihu.com/question/36713411/answer/2200534275
+
+DBeaver好用
+https://dbeaver.io/download/
+https://www.jb51.net/article/230740.htm
+
+
+
+
+
+软件：Sequel Pro
+介绍：http://www.zhishichong.com/article/96506
+下载：http://www.downza.cn/mac/10408678.html
+
+Sequel Pro连接不上
+https://blog.csdn.net/qq_36131788/article/details/108704354
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678' PASSWORD EXPIRE NEVER;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456789';
+
+FLUSH PRIVILEGES;

@@ -1,0 +1,52 @@
+
+鉴权方式
+我们常用的鉴权有四种：
+1、HTTP Basic Authentication
+2、session-cookie
+3、Token 验证
+4、OAuth(开放授权)
+
+你们接口怎么鉴权的?
+(1)通过用户和密码，auth鉴权
+(2)通过 cookie和 session
+(3)通过 token
+(4)通过sign签名
+现在app一般是通过 token鉴权，有些是通过把 token放在请求头里面，
+有些是通过 singn签名这个字段放在body里面去鉴权的，一般的web是通过 session去鉴权的
+
+
+
+1.cookie、session、token的区别
+它们都是用来做鉴权的，区别的话，大概是这样的
+现在 cookie、session一般是配合使用的用户第一次登陆时，服务器会创建一个 session
+生成一个 sessionID，sessionID保存在 cookie中，然后返回到客户端，保存在浏览器中。
+客户端每次发请求都会把这个值带到服务器，做一个鉴权和会话的跟踪，或者时效的验证
+token和 cookie、session差不多，通过算法，每次验陆，会产生一串很长的随机字符串，
+一般是在放在返回的body里面，或者返回的头里面，他们都是服务器产生，带过来是要做验证和时效的验证的。
+一般在app中使用token比较多一点，Web端使用cookie、session的鉴权方式会多一点。
+
+
+
+https://www.cnblogs.com/JamesWang1993/p/8593494.html
+2.Token
+Token的引入：Token是在客户端频繁向服务端请求数据，服务端频繁的去数据库查询用户名和密码并进行对比，
+判断用户名和密码正确与否，并作出相应提示，在这样的背景下，Token便应运而生。
+Token的定义：Token是服务端生成的一串字符串，以作客户端进行请求的一个令牌，当第一次登录后，
+服务器生成一个Token便将此Token返回给客户端，以后客户端只需带上这个Token前来请求数据即可，
+无需再次带上用户名和密码。
+最简单的token组成:uid(用户唯一的身份标识)、time(当前时间的时间戳)、
+sign(签名，由token的前几位+盐以哈希算法压缩成一定长的十六进制字符串，
+可以防止恶意第三方拼接token请求服务器)。
+
+使用Token的目的：Token的目的是为了减轻服务器的压力，减少频繁的查询数据库，使服务器更加健壮。
+
+https://www.jianshu.com/p/805161f036c8/
+
+
+
+3.什么是OAuth？
+OAuth 代表开放授权协议。
+（腾讯）提供给第三方一个接口，第三方调用后，返回一个二维码，
+扫描后再请求腾讯进行验证。
+https://blog.csdn.net/Pcccy/article/details/125027763
+

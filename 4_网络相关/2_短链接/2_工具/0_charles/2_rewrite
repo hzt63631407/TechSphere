@@ -1,0 +1,25 @@
+
+
+Charles提供了Map功能、Rewrite功能、Breakpoints功能，
+都可以达到修改服务器返回内容的目的，这三者的差异是：
+
+https://www.jianshu.com/p/fc0a331cc710
+
+
+
+Breakpoints功能适合做临时性的修改，request和response都支持修改
+Execute （执行）。 另外 Abort （中止）， Cancel （取消）。
+（主要修改请求，设置延时，停止等等，修改返回也可以，和超时相关）
+
+
+
+Map功能适合长期的将某些请求重定向到另一个网络地址或本地文件
+Map Local功能：将请求的返回重定向到本地文件中
+Map Remote功能：将请求的域名重定向到一个网络地址
+（主要修改返回，设置成自己的返回）
+
+
+
+Rewrite功能适合对网络请求进行一些正则替换
+https://www.jianshu.com/p/ea7be3767113
+

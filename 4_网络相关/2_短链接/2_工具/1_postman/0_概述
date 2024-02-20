@@ -1,0 +1,38 @@
+
+
+
+https://www.cnblogs.com/jessicaxu/p/7500803.html
+
+
+1.charles粘贴出curl
+
+2.放到一个txt
+
+3.postman进行import
+
+4.postman params放在body里
+
+5.使用x-www-form-urlencoded
+
+我们可以看出，服务器知道参数用符号&间隔，如果参数值中需要&，则必须对其进行编码。
+
+编码格式就是application/x-www-form-urlencoded（将键值对的参数用&连接起来，
+如果有空格，将空格转换为+加号；有特殊符号，将特殊符号转换为ASCII HEX值）。
+
+
+
+https://blog.csdn.net/lihefei_coder/article/details/99606386
+application/x-www-form-urlencoded
+post的默认请求
+需要把对象参数序列化为字符串参数
+参数采用类似get的参数拼接方式
+使用URIencode转码方式，转码会增加体积，适合短字节
+请求参数放在请求体里
+不在地址栏显示参数，安全性高
+
+https://www.jianshu.com/p/53b5bd0f1d44
+我们可以看出，服务器知道参数用符号&间隔，如果参数值中需要&，则必须对其进行编码
+
+如果有post请求 不放body，放params，看看可不可以？
+预计不行，服务器估计不解params
+

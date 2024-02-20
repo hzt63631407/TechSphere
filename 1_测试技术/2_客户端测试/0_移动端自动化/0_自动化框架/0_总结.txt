@@ -1,0 +1,55 @@
+
+
+
+
+一、工具对比
+
+Appium：
+
+Appium 是一个跨平台的移动自动化测试框架，它可以用于测试Android和iOS应用程序。
+Appium 的底层实现是基于 WebDriver 协议，通过与设备上的WebDriver进行通信来控制应用程序。
+对于 Android 平台，Appium 使用的是 AndroidDriver，
+它是一个基于 Selenium WebDriver 的扩展，允许通过 WebDriver 协议与 Android 设备交互。
+Appium 在底层使用了一组称为 "Appium Server" 的服务来与设备通信，
+这些服务通过与设备上的 Appium 运行时连接，而不是直接调用 adb。
+
+
+UIAutomator2：
+
+UIAutomator2 是一个用于 Android 平台的自动化测试框架，
+它提供了一组 API 和工具，用于控制和测试 Android 应用程序的用户界面。
+UIAutomator2 是 Android 平台上的原生自动化框架，可以直接与设备的 UI 系统进行交互。
+它使用了底层的 Android Accessibility 服务来获取应用程序的界面元素信息，
+并通过 adb 命令与设备进行通信，但并不是直接调用 adb。
+
+
+
+
+
+
+Appium: 这个框架最大的不足就是环境依赖复杂，
+而且每个自动化任务都要在在执行端的PC上开启一个appium server，
+大概占用内存300-500MB，这就决定执行端不能抗住太多的UI自动化任务。
+当然它的功能相当完善，这是可借鉴的部分。
+
+Macaca: 环境依赖复杂，它是做的应用级上的封装，
+和Appium一样均采用了 Node.js 作为开发语言，
+接口也基于web-driver实现，同样PC上需要启动一个nodejs服务。
+它的iOS环境也比较复杂，XCTestWD在稳定性和易用性比不过WDA（虽然WDA还有很多问题），
+ 而且macaca也不怎么维护了，新的问题也没人解决。
+
+Airtest: 这个框架比较优秀，而且它提供的配套工具链非常齐全，
+这也是KRunner借鉴比较多的。
+但是它更像一个Driver，虽然它还提供了AirtestIDE,
+但还是只提供一套接口调用，没有对用例进行工程化的能力，
+用例管理和组织能力，失败分析能力，用例重试能力，异常处理能力，报告汇总能力都比较欠缺。
+而且在iOS端它没有对WDA进行全生命周期的管理，
+需要用户自己在脚本里进行控制，增加了用户使用门槛，并且WDA的稳定性没有得到保障。
+
+Uiautomator2： 这个框架比较轻量，但是只支持Android端，
+同样它更像一个Driver和Airtest类似，没有对用例进行工程化的能力，
+用例管理和组织能力，失败分析能力，用例重试能力，异常处理能力，报告汇总能力都比较欠缺。
+
+
+
+

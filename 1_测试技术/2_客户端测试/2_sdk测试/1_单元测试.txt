@@ -1,0 +1,35 @@
+
+
+
+
+以我们登录模块为例，使用的单测框架有：
+Mockito、powermock等。使用jacoco进行代码覆盖率统计。
+
+
+
+安卓开发者：
+https://developer.android.google.cn/training/testing/fundamentals/what-to-test?hl=zh-cn
+
+1.本地单元测试位于 module-name/src/test/java/（可以本地运行）
+androidTestCase
+2.插桩测试位于 $module-name/src/androidTest/java/（需要在设备上运行）
+Instrumentation（仪表测试）
+
+2个框架都继承了JUnit
+
+都需要的框架：
+Mockito：本地单元测试模拟框架
+
+
+
+安卓sdk接口测试：
+https://www.freesion.com/article/874345081/
+
+
+安卓单元测试：
+https://www.jianshu.com/p/aa51a3e007e2
+
+
+
+
+

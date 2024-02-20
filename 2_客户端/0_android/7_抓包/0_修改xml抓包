@@ -1,0 +1,37 @@
+
+
+
+
+一、安卓修改xml实现7.0以上系统可以抓包，需要先安装证书
+1.在应用的 AndroidManifest.xml 文件中添加以下权限：
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+这些权限将允许您的应用在设备上访问互联网、检查网络状态以及读取/写入存储空间。
+
+
+
+
+2.在 AndroidManifest.xml 文件中添加以下代码，
+以允许您的应用在 Android 7.0 及以上的设备上使用明文流量进行网络通信：
+<application
+    ...
+    android:networkSecurityConfig="@xml/network_security_config"
+    ...>
+    ...
+</application>
+
+
+
+
+3.在 res/xml 文件夹下创建一个名为 network_security_config.xml 的 XML 文件，
+并在其中添加以下内容：
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
+
+如果您的 res 目录下没有 xml 文件夹，您可以手动创建它,
+在弹出的菜单中选择 "Directory"（目录）。
+

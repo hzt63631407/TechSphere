@@ -1,0 +1,27 @@
+
+
+
+
+一、appium实现原理
+1.本地appium客户端会起一个js的服务4723，然后编写python发送http请求。
+（webdriver是js服务器，webdriver相当于中转站，接收本地http请求，然后发送给手机端）
+2.本地接受到服务会请求手机的server服务4724，
+因为appium会往手机装一个bootstap.jar，会监听端口。
+3.手机收到请求会通过bootstap.jar去调用了uiautomator的api。
+4.执行操作完成再返回给pc端的server，再返回给pc端的脚本。
+
+
+
+二、为什么不用appium
+1.搭建环境特别复杂，上手难
+2.而且比较占内存，能占到300-500左右，云测起多个任务
+3.是用js写的，我自身的语言是python。
+
+
+
+三、其他
+1.appium有录制功能，但是adb日志可以获取点击的坐标，转化为百分比
+2.appium支持h5，appium通过contexts api切换webview
+3.是的，选择合适的镜像可以在一定程度上减少其他自动化工具在 Docker 内部的内存消耗。
+类似于 Appium，其他自动化工具在 Docker 中的内存消耗也受到镜像的配置和资源限制的影响。
+

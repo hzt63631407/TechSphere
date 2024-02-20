@@ -1,0 +1,73 @@
+
+
+Cocoapods是一个用来帮助我们管理第三方依赖库的工具,他可以解决库与库之间的依赖关系。（maven？）
+https://www.jianshu.com/p/1d2f98742880
+
+
+a58@58deMacBook-Pro-2 ~ % brew install cocoapods
+==> Downloading https://formulae.brew.sh/api/formula.jws.json
+##O#-#                                                                        
+==> Downloading https://formulae.brew.sh/api/cask.jws.json
+##O#-#                                                                        
+Warning: Treating cocoapods as a formula. For the cask, use homebrew/cask/cocoapods
+==> Fetching dependencies for cocoapods: libyaml, ca-certificates, openssl@1.1, readline and ruby
+==> Fetching libyaml
+==> Downloading https://ghcr.io/v2/homebrew/core/libyaml/manifests/0.2.5
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/libyaml/blobs/sha256:a436da33a0
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sh
+######################################################################## 100.0%
+==> Fetching ca-certificates
+==> Downloading https://ghcr.io/v2/homebrew/core/ca-certificates/manifests/2023-
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/ca-certificates/blobs/sha256:11
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sh
+######################################################################## 100.0%
+==> Fetching openssl@1.1
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/1.1/manifests/1.1.1t
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/1.1/blobs/sha256:524ec0
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sh
+######################################################################## 100.0%
+==> Fetching readline
+==> Downloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.1
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:9406afa0f
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sh
+######################################################################## 100.0%
+==> Fetching ruby
+==> Downloading https://ghcr.io/v2/homebrew/core/ruby/manifests/3.2.1
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/ruby/blobs/sha256:c9ff8aa473096
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sh
+######################################################################## 100.0%
+==> Fetching cocoapods
+==> Downloading https://ghcr.io/v2/homebrew/core/cocoapods/manifests/1.12.0
+######################################################################## 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/cocoapods/blobs/sha256:f60a988d
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sh
+######################################################################## 100.0%
+==> Installing dependencies for cocoapods: libyaml, ca-certificates, openssl@1.1, readline and ruby
+==> Installing cocoapods dependency: libyaml
+==> Pouring libyaml--0.2.5.arm64_monterey.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libyaml/0.2.5: 10 files, 353KB
+==> Installing cocoapods dependency: ca-certificates
+==> Pouring ca-certificates--2023-01-10.all.bottle.tar.gz
+==> Regenerating CA certificate bundle from keychain, this may take a while...
+🍺  /opt/homebrew/Cellar/ca-certificates/2023-01-10: 3 files, 216.9KB
+==> Installing cocoapods dependency: openssl@1.1
+==> Pouring openssl@1.1--1.1.1t.arm64_monterey.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/openssl@1.1/1.1.1t: 8,101 files, 18MB
+==> Installing cocoapods dependency: readline
+==> Pouring readline--8.2.1.arm64_monterey.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/readline/8.2.1: 50 files, 1.7MB
+==> Installing cocoapods dependency: ruby
+==> Pouring ruby--3.2.1.arm64_monterey.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/ruby/3.2.1: 16,570 files, 46.8MB
+==> Installing cocoapods
+==> Pouring cocoapods--1.12.0.arm64_monterey.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/cocoapods/1.12.0: 13,436 files, 27.8MB
+==> Running `brew cleanup cocoapods`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+a58@58deMacBook-Pro-2 ~ % 

@@ -1,0 +1,104 @@
+
+
+
+
+https://blog.csdn.net/csdn_aiyang/article/details/68943015
+https://blog.csdn.net/m0_66155658/article/details/122781972
+
+客户端性能优化：主要是几类：
+内存（内存溢出、崩溃,anr）
+流畅（卡顿）
+安装包（APK瘦身）
+其他：耗电量等
+
+
+1.内存优化——》防止内存泄露 oom治理
+
+资源对象(File,视频)没有关闭引起的内存泄漏
+
+单例造成泄漏
+如果此时传入的是 Activity 的 Context，当这个 Context 所对应的 Activity 退出时，
+由于该 Context 的引用被单例对象所持有，其生命周期等于整个应用程序的生命周期，
+所以当前 Activity 退出时它的内存并不会被回收，这就造成泄漏了
+
+Handler 造成的内存泄漏
+handler为了避免ANR而不在主线程进行耗时操作，去处理网络任务或者封装一些请求回调等api等。
+我们知道 Handler、Message 和 MessageQueue 都是相互关联在一起的，
+万一 Handler 发送的 Message 尚未被处理，
+则该 Message 及发送它的 Handler 对象将被线程 MessageQueue 一直持有造成内存泄漏。
+
+集合类泄漏
+如果一个集合类是全局性变量
+（比如类中的静态变量或全局性map即有静态引用又或者final指向它）只有添加元素的方法，
+而没有相应的清除机制，就会占用内存只增不减，造成内存泄漏
+
+常见内存泄漏原因：
+https://blog.csdn.net/ahou2468/article/details/106957208
+
+
+
+2.流畅，卡顿优化
+原因：
+1.UI布局层次太深——》布局优化
+2.过度绘制  原因：像素被多次绘制。——》绘制优化，手机打开过度重绘
+3.ui主线程执行了io操作，所有的ui操作只能在主线程。
+4.复杂的数据处理，
+5.短时间内创建大量对象进入新生区、导致频繁的GC。
+
+过渡绘制就是在同一个区域中叠加了多个控件
+（同一个区域控件，背景，还有数字；就是三次）
+过多的交互，或者开发人员不注意
+过渡绘制最可能出现卡顿
+一般来说 不允许出现4x过渡绘制
+
+
+
+3.APK瘦身减少安装包大小的常用方案：
+1.代码混淆。使用proGuard 代码混淆器工具，它包括压缩、优化、混淆等功能。
+2.图片优化。比如利用 PNG优化工具 对图片做压缩处理。
+3.插件化。
+
+
+
+如何减少anr和crash（crash治理）：
+ANR是Android中一个独有的概念
+它的全称是Application Not Responding(应用程序无响应)
+当卡顿超过一定时间(一般是5秒)时就会出现ANR对话框。
+ios没有anr。
+
+anr产生的根本原因主要有两种：
+1.主线程执行了耗时操作，比如数据库操作或网络编程，耗时太长
+2.主线程可能处于阻塞状态，等待获取锁。
+ANR发生以后，在Logcat中有相应的日志输出，
+并且会在/data/anr/目录下输出一个traces.txt文件
+
+
+ANR产生的原因不同，超时时间也不尽相同，从本质上讲，产生ANR的原因有三种，
+大致可以对应到Android中四大组件中的三个(Activity/View、BroadcastReceiver和Service)。
+1.KeyDispatchTimeOut(Activity/View)原因是View的按键事件或触摸事件在特定的事件（5秒）内无法得到响应.
+2.BroadcastTimeout  前台广播10秒，后台广播60秒。
+3.ServiceTimeout ：Service在特定的时间内（20s）生命周期函数无法处理完成。
+
+
+
+减少/避免anr：
+activity
+1.主线程只做UI相关的操作,避免耗时操作。
+在activity的关键的生命周期方法：onCreate 和 onResume方法上尽可能处理越少越好的事情。
+下面列举的操作都是长时间运行的：网络工作、数据库操作、精确的计算，
+例如重新定制图片（应该在单独的工作线程中）、或者通过异步请求操作数据库的情况下。
+(可以采用重新开启子线程的方式，
+然后使用Handler+Message的方式做一些操作，比如更新主线程中的ui等)
+
+2.主线程可能处于阻塞状态，等待获取锁。
+避免主线程跟工作线程发生锁的竞争，减少系统耗时binder的调用。
+谨慎使用sharePreference，注意主线程执行provider query操作；
+
+
+BroadcastReceiver 还有service主线程中，处理复杂的逻辑和计算，
+而交给work thread操作。
+
+
+
+
+

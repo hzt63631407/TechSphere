@@ -1,0 +1,38 @@
+
+
+
+
+一、wda实现原理：
+从github下载appium的/WebDriverAgent，需要下载webdriveragnet，
+然后利用xcode进行build，再安装到手机上，手机上就有WebDriverAgent，
+（由于iOS10放弃了uiautomator，改用XCTest来进行测试。wda调用xctest）
+再用python本机发送http请求，wda收到之后再去调用苹果原生的XCTest。
+
+通过tidevices实现ios的装包
+
+
+
+
+二、ios点击
+wda有点击方法。
+self.client = wda.Client(gen_wda_url(self.serialno))
+self.client.tap(x, y)
+
+ios scheme 用 tidevice 实现跳转
+python第三方库
+
+
+
+
+三、其他
+但是wda会经常挂，内存不足，链接失败，
+我们重新写了一个drvier，wda服务器报错之后，就重新拉起来。
+
+如果是用个人账号bulid的wda会有7天的过期时间
+https://segmentfault.com/a/1190000039124387
+开发者账号不受限制
+解决：重新bulid一个
+1.用WebDriverAgent.xcodeproj打开xcode，然后Product -> Test
+2.xcodebuild -project  /Users/huangzetao/Desktop/webdriveragent-xcode_12/
+WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination
+"id=0f33294acdd564a9fd04eea72bd135e81ce4bbcd" test

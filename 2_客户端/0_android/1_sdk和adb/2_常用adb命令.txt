@@ -1,0 +1,122 @@
+
+
+adb devices
+adb install
+adb uninstall
+adb pull
+adb push
+adb logcat | find “com.sankuai.meituan” >d:\test.txt
+adb shell am monitor（获取当前 Activity和崩溃）
+
+adb shell monkey -p 包名 -v 10
+
+adb查看屏幕分辨率
+adb shell wm size
+
+
+
+
+1. https://blog.csdn.net/qq_41282136/article/details/100265002
+输入命令：adb shell am monitor
+然后启动需要获取包名的应用 看崩溃
+
+am指令
+am (activity manager)
+这个命令可以启动Activity、打开或关闭进程、发送广播等操作。
+adb shell am
+command 命令详解
+start [options] 启动 指定的 Activity
+startservice [options] 启动 指定的 Service
+broadcast [options] 发送 指定的广播
+force-stop 停止 相关的进程
+
+
+2.adb shell dumpsys meminfo
+显示CPU信息
+命令：dumpsys cpuinfo
+
+显示所有的activity信息
+命令：dumpsys activity
+
+adb shell cat /proc/cpuinfo
+
+获取手机版本
+adb shell getprop ro.build.version.release
+
+adb shell getprop ro.product.cpu.abi
+adb获取手机cpu信号，查看是32位还是64位
+
+
+3.adb shell pm list packages
+显示手机里面所有应用的包名
+
+
+
+4.使用全局命令 https://blog.csdn.net/userwyh/article/details/82430665
+
+设置代理：
+adb shell settings put global http_proxy 代理IP地址:端口号
+如：adb shell settings put global http_proxy 127.0.0.1:8888
+
+移除代理：
+adb shell settings delete global http_proxy
+
+adb shell settings delete global global_http_proxy_host
+
+adb shell settings delete global global_http_proxy_port
+
+注意：移除代理后要重启手机才能生效。设置代理可以多次设置，立即生效。
+
+
+6.查看app versionCode
+adb shell dumpsys package com.kwai.allin.demo|grep versionCode
+
+
+7.adb dump 文件点击
+https://blog.csdn.net/u014520313/article/details/79218897
+https://blog.csdn.net/qq_36350532/article/details/81708339
+
+
+8.adb 常用命令
+https://blog.csdn.net/qq_26552691/article/details/81348222
+
+
+9.判断手机是否root
+先adb shell 再adb root
+可以切换到root就代表已经root
+
+
+
+录屏：
+指定视频分辨率大小，带上参数 --size
+adb shell screenrecord --size 1280*720 /sdcard/launch.mp4
+https://blog.csdn.net/sunbinkang/article/details/124956528
+
+adb shell am start -a android.intent.action.VIEW -d
+"custom-scheme://custom-host?itemId=17331" com.foreverstar.test
+
+
+
+10.anr
+cd data/anr
+adb pull anr
+
+获取anr日志
+a58@hzt Desktop % adb bugreport
+/data/user_de/0/com.android.shell/files/bugre...skipped. 36.0 MB/s (15950790 bytes in 0.423s
+Bug report copied to /Users/a58/Desktop/bugreport-PCKM80-RP1A.200720.011-2023-11-28-14-12-30.zip
+
+
+
+
+17，利用adb启动服务，am startservice -n ｛包(package)名｝/.{服务(service)名称}。
+
+比如：am startservice -n com.android.traffic/.maniservice
+
+18，利用adb发送广播，am broadcast -a <广播动作>。
+
+比如：am broadcast -a android.net.conn.CONNECTIVITY_CHANGE
+————————————————
+
+原文链接：https://blog.csdn.net/zhandoushi1982/article/details/4796104
+

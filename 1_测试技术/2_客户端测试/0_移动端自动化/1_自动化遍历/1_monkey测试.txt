@@ -1,0 +1,52 @@
+
+
+
+
+一.什么时候开展app压力测试
+ 首轮功能测试通过后
+ 下班后的夜间进行
+
+
+
+
+二.安卓系统自带的
+路径：/system/framework/monkey.jar
+monekey 探索性测试，执行了monkey后，手机上会起一个monkey进程。
+可以断开数据线连接，手机会继续跑。
+
+
+
+
+三、monkey测试：
+https://blog.csdn.net/zjnuwsf/article/details/52669764
+
+
+
+
+四、monkey的原理：
+https://developer.aliyun.com/article/63501
+https://blog.csdn.net/cadi2011/article/details/117486050
+
+我了解过monkey的原理，monkey其实就是模仿各种点击事件。
+主要有三种事件，
+第一种是触摸事件，比如：屏幕以及物理键的触摸，滑动，点击事件，InputManager，是调用hiden API实现。
+第二种是Activity事件，比如打开一个先的页面，利用IActivityManager接口打开Activity。
+第三种是Window事件，指操作Window的事件，例如转屏。是用windowmanager。
+
+代码实现是这样的
+一个monkey类，是程序的入口
+一个MonkeyEventSource，MonkeyEvent的工厂，是一个接口。它有各种实现，例如随机生成MonkeyEvent，
+一个MonkeyEvent是一个抽象类，有很多具体的子类，各种事件由子类实现。
+
+
+
+
+
+
+
+
+
+
+
+
+

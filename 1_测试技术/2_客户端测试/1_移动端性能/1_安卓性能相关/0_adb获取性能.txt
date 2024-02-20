@@ -1,0 +1,49 @@
+
+
+
+
+adb 获取内存
+adb dumpsys meminfo pid
+是pss
+
+查看cpu使用情况：
+输入命令：adb shell top -m 10 -s cpu
+（-m显示最大数量，-s 按指定行排序）
+
+
+
+Android Studuio测性能
+https://blog.csdn.net/weixin_44794371/article/details/119248783
+
+adb命令获取性能
+https://blog.csdn.net/xiaxl/article/details/117918072
+https://tool.4xseo.com/a/11284.html
+
+
+
+
+通过adb做性能测试：
+https://www.likecs.com/show-281634.html
+https://www.likecs.com/show-204571156.html
+https://www.likecs.com/show-445193.html
+
+
+adb top命令获取 cpu，内存
+https://ke.qq.com/webcourse/3616833/103761969#
+taid=11738630954889281&vid=3701925924481240253
+
+
+python获取cpu和内存
+https://blog.csdn.net/weixin_39960147/article/details/111671889
+
+
+ffmpeg使用
+https://zhuanlan.zhihu.com/p/402824002
+ffmpeg可以对视频进行分针
+在ffmpeg的bin目录下，使用指令将视频文件转化为图片，间隔为30ms
+指令：ffmpeg.exe -i<视频文件路径> -r 30 -s 640x480 <输出每帧图片的目录路径>/%d.png
+
+
+
+
+

@@ -1,0 +1,75 @@
+
+
+
+
+
+反向代理服务器的作用
+1. 保护内网安全
+2. 负载均衡
+3. 静态服务器，html，js，可以先返回
+4. 缓存，减少服务器的压力，
+还可以主动在返回客户端的消息体（返回的http head），
+加上客户端缓存的标记（如果web服务器没有新的，就用本地）
+
+
+
+负载均衡算法常用的有,默认是轮询算法~
+1.轮询
+2.权重（配置不同）
+3.ip_hash算法，同一个客户端请求到同一个服务器
+
+
+
+反向代理的工作原理是，代理服务器来接受客户端的网络访问连接请求，
+然后服务器将请求有策略的转发给网络中实际工作的业务服务器，
+并将从业务服务器处理的结果，返回给网络上发起连接请求的客户端。
+
+
+
+nginx是进程：
+nginx和内存打交道，速度很快，没有磁盘io
+
+java，mysql是线程：（io密集型）
+1.处理请求很慢，而且有时候一个线程处理到一半会停下来。
+2.java和mysql程序，java请求需要等待mysql，mysql请求需要等待磁盘。
+3.他们这种应用程序，需要大量的线程，才能支撑大量的请求处理。
+
+
+
+
+nginx是如何实现高并发的
+一个主进程，多个工作进程，主进程负载调度。
+每个工作进程可以处理多个请求。
+每进来一个request，会有一个worker进程去处理。但不是全程的处理，
+处理到可能发生阻塞的地方，
+比如向上游（后端）服务器转发request，并等待请求返回。
+那么，这个处理的worker继续处理其他请求，而一旦上游服务器返回了，
+就会触发这个事件，worker才会来接手，这个request才会接着往下走。
+由于web server的工作性质决定了每个request的大部份生命都是在网络传输中，
+实际上花费在server机器上的时间片不多。这是几个进程就解决高并发的秘密所在。
+即@skoo所说的webserver刚好属于网络io密集型应用，不算是计算密集型。
+
+
+https://blog.csdn.net/h2604396739/article/details/88399478
+
+
+
+将域名转发到另一个域名
+https://www.yisu.com/zixun/251834.html
+
+server{
+  listen 80;
+  server_name  baidu.shaochenfeng.com;             （一般云服务器，有ip，也有域名，如www.kuaishou.com）
+  index  index.php index.html index.htm;
+
+  location / {
+    proxy_pass  http://www.baidu.com;
+    proxy_set_header Host $proxy_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}
+这样访问 http://baidu.shaochenfeng.com 时就会转发到 http://www.baidu.com
+
+
+

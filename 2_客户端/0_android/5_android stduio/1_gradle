@@ -1,0 +1,14 @@
+
+
+
+
+Gradle是一种基于Groovy和Kotlin DSL的项目自动化构建工具。
+它可以帮助你定义和执行构建过程中的任务，包括编译代码、处理资源、运行测试、生成APK等。
+它还支持构建变体、构建缓存和增量构建，以提高构建效率。
+
+
+安卓执行打包命令 ./gradlew assembleRelease
+
+对于基于 Gradle 的项目：
+在项目根目录下执行 ./gradlew clean（Mac/Linux）或
+gradlew clean（Windows）来清理项目，然后重新编译。

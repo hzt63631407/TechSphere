@@ -1,0 +1,28 @@
+
+
+Q：你了解过docker吗？
+实际过程中没有使用过，但是有了解过，一个完全隔离的环境，
+拉去镜像，然后创建容器。
+docker是一个软件,docker类似虚拟机，比虚拟机更轻量级
+
+
+而且docker的一些命令我是熟悉的。
+systemctl start docker
+systemctl stop docker
+docker pull 镜像名
+docker run 镜像名
+
+
+docker version
+docker run -it -d --name redis001 redis:5.0.5 /bin/bash
+
+#3.查看已运行容器
+docker ps
+
+
+
+将mysql和tomcat分开便于模块化编程，相当于给你很多零件，
+你自己组装就好了。不然，假如我只想搭建一个Tomcat镜像，
+却必须拉取Tomcat+mysql镜像，多麻烦。
+给你独立的两个mysql和tomcat镜像，你可以自己组装镜像。
+也就是说，你也可以组装一个mysql+tomcat镜像，然后发布出去。

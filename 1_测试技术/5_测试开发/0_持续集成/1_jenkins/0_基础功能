@@ -1,0 +1,31 @@
+
+
+
+
+jenkins构建远程触发器：通过url来触发任务
+
+为什么要用jenkins？
+1.业务除了jenkins之外，还有很多集成的工具，例如：
+有些git服务器(gitlab 流水线)也集成了ci/cd
+2.jenkins老牌的持续工具，业界使用的人多，资料多，有很多插件，上手简单
+
+
+如何配置jenkins的job？
+1.打开首页
+2.创建item，选择free—style—project
+3.配置源码，触发器，构建脚本，构建后要执行的脚本
+
+
+
+
+用过jenkins的插件？
+1.git插件
+2.maven插件
+3.publcsh over ssh插件
+4.邮件插件
+
+
+
+
+jenkins操作docker吗？
+没有，但是docker的命令我都熟悉，我自己也花了很多时间去研究。

@@ -1,0 +1,13 @@
+
+
+
+
+一、u2为什么不能点击h5：
+u2调用的是uiautomator原生的api，只能识别原生的api。
+如果你用uiautomotorview去抓控件的，可以解析不能识别出ResourceId不能识别。
+
+
+
+
+二、h5是由chromedriver点击
+https://blog.csdn.net/Z_love_u/article/details/113645480

@@ -1,0 +1,9 @@
+
+
+
+Web Service也称为web服务，它是一种跨编程语言和操作系统平台的远程调用技术。
+Web Service采用标准的SOAP协议传输
+区分http请求和SOAP（SOAP=Http+XML）请求：
+
+
+

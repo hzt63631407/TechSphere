@@ -1,0 +1,64 @@
+（1）.检查下电脑是否安装有git
+在终端输入git。如下图所示，就是已安装。
+如未安装，会提示“The program 'git' is currently not installed.”。
+
+在mac电脑上安装git有两种方式：
+通过安装homebrew，然后通过homebrew安装Git，
+具体方法请参考homebrew的文档： https://brew.sh/index_zh-cn。
+通过安装Xcode软件，Xcode集成了Git。
+
+https://www.git-scm.com/download/
+
+（2）.配置ssh key
+
+# git使用https协议，每次pull,push都要输入密码，使用git协议，
+使用ssh秘钥，可以省去每次输密码
+
+# 1.打开本地git bash,使用如下命令生成ssh公钥和私钥对
+ssh-keygen -t rsa -C 'hechang@kuaishou.com' #-C的参数是邮箱地址，然后回车
+
+# 2.然后会出现：Enter file in which to save the key
+(/Users/yzq/.ssh/id_rsa)，直接回车
+
+# 3.如果你的.ssh/id_rsa已经，则会出现提示是否需要覆盖，输入y，覆盖之前的内容
+
+# 4.设置密码
+
+# 5.查看本机ssh公钥，获取得到它
+cd ~/.ssh
+ls（查看目录是否有id_rsa.pub文件）
+查看公钥：cat id_rsa.pub    或者vim id_rsa.pub
+
+# 6. 复制全部公钥中的内容，粘贴到git中
+Usersettings——sshkey（个人信息中，不是某个项目中）
+
+https://blog.csdn.net/q343509740/article/details/79653216
+
+
+# 7.查看本机sshkey
+cd ~/.ssh
+cat id_rsa.pub
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDvg7n8n/nFd0pzkUNX5k3WTgjIKyPT6GYeVdFVXK9Fo/W8u+YI/5feaPx2k6EM4/
+A28r5U29MK4DyDcF/MxieTTIJTTS9N61MyXYgE70bBcCueeXwjiEZtvbwbzKARw+bGzzB5RWmUd8uA5O6k2wWmq7Y/
+6sMaT0ugMs/thBsRCbetPaM2qrsrd/aaqr4IKsDSVSAyECMl8W/gv0Uo8Z5DARv3lGUuGE8mFiKvJX+ZcCjrFMw5lo2Tho9/
+UIYYOwufw4CSuEaho3Ja8Wbgs+bpZJj1mrL9NovSE6YNt+UzTHgv1u1IxAFr4BPSkYg2noooDdg657Cncm4XYKbiJ0b7MK2xqSBgLK87YFRHmfAXwwEQKsK8AxpB0NPMpByht/
+h4RefJJkuIeTmVyAdI6hnhkwo44o/HZ5EJ/xBNFYO0xYFq65rs/wj1DOMeN6zC7TDqSzxbBnEMW4fs1wzSyReknrqjyJnWauDU8osJl89azTHZ0rdDYCEQ+aknZiSg6ORzuL6Hc7C8e7cdz6FbbC0WsbPrzuBzm/
+Z5Xt0y9qxWtTflnOEPIf7nUZmNYnc+RGCAcsCcoaKAhe4yMWL7delhYnJc5tI7DM+DhuP6ipM7gx+yHwGpofLefYwEqgBqas18Ces2YuXTrv5vtFN89uTZWLbBXQ6nYu2te2pE2Yd68w== huangzetao@kuaishou.com
+
+（3）.本地创建git仓库（不需要）
+git克隆基本上是一个组合：
+> git init(创建本地存储库)
+> git remote add(将URL添加到该存储库)
+git fetch(从该URL中获取所有分支到本地存储库)
+git checkout(创建工作树中主分支的所有文件)
+因此，不，您不必执行git init，因为它已经由git clone完成。
+
+
+（4）.将git中的工程克隆到本地
+在刚创建的本地git仓库中，使用git clone 命令，将git中的工程克隆到本地
+
+
+ssh相关
+https://blog.csdn.net/hsd2012/article/details/79469747
+https://blog.csdn.net/u012898633/article/details/52424088

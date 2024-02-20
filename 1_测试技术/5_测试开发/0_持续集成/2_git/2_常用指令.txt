@@ -1,0 +1,125 @@
+Gitlab的使用
+
+# 配置相关
+1.git 最全地址
+https://blog.csdn.net/u013374164/article/details/78644576
+
+2.配置git
+git config -global user.name 'user.name'
+git config -global user.email 'user.email'
+
+3.忽略文件
+.pyc是自动生成的，无需让git跟踪。这些存储在_pycache_中。
+为让Git忽略这个目录，创建一个名为.gitinore的特殊文件，并添加下面一行。
+_pycache_/
+.gitinore 忽略优先级
+https://www.cnblogs.com/kevingrace/p/5690241.html
+
+
+
+# 命令相关
+1.首次拉取：
+git clone https://github.com/tianqixin/runoob-git-test another-runoob-name
+
+1.我想从远程仓库里拉取一条本地不存在的分支时：
+git checkout -b 本地分支名 origin/远程分支名
+
+2.git push -f
+git push -u origin master -f
+origin：远程仓库名  master：分支名称  -f：force，意为强制、强行
+一般不用分支
+
+3.检查状态
+git status
+
+4.查看提交历史
+git log
+
+5.git diff 查看已修改但没有添加到缓存区的文件（git add可以添加到缓存区）
+git diff --cached 查看在缓存区但是没有到本地工作区的文件（git commit可以添加到工作区）
+
+6.git 删除分支
+删除本地分支：git branch -d dev
+删除远程分支：git push origin --delete dev
+
+7.merge和rebase
+https://www.cnblogs.com/kidsitcn/p/5339382.html
+https://www.jianshu.com/p/4079284dd970
+https://blog.csdn.net/mottohlm/article/details/80933834
+
+正如merge的名字所隐含的意思：merge执行一个合并，或者说一个融合。
+我们希望在当前分支上往前走，所以我们需要融合合并其他分支的工作，从而放弃其他的分支。
+
+比如rebase,你自己开发分支一直在做,然后某一天，你想把主线的修改合到你的分支上,
+做一次集成,这种情况就用rebase比较好.把你的提交都放在主线修改的头上
+
+rebase黄金定律：永远不要rebase一个已经分享的分支（到非remote分支，比如rebase到master,develop,release分支上），
+也就是说永远不要rebase一个已经在中央库中存在的分支.只能rebase你自己使用的私有分支
+
+
+8.git status
+Changes not staged for commit //在工作区，没有放入暂存区的改动
+Changes to be committed //在暂存区，待提交的改动
+Untracked files //新建的，未被追踪的文件
+
+
+9.储藏代码
+有时候，我们会在代码写了一半的时候有更紧急的需求插入，
+于是我们想把当前已将写好的代码先储藏起来，这时就要用到以下命令：
+git stash
+当我们执行完这个命令后，git status一下会发现，当前的工作目录是干净的，没有做过任何改动。
+查看储藏代码列表
+使用git stash list可以看到已经储藏过的所有的列表。我们可以看到是一个堆栈结构
+弹出储藏，解决完紧急需求后，我们要把原来写了一半的代码拿出来。但是要记住，
+不同分支储藏代码是放在一起的，如果在多个分支都储藏了代码，要在对应的分支弹出。
+git stash pop   //弹出最上面一个
+git stash pop stash@{0}  //弹出指定一个
+
+
+10.git cherry-pick <commitHash>
+例如：从A分支上的某个commit拷贝到B分支
+1.在A分支 git log 查看
+commit 870a51e402b7eb39a7ab9aa7a7cb36d92a6b1283
+2.在B分支 git cherry-pick 870a51e402b7eb39a7ab9aa7a7cb36d92a6b1283
+然后B分支git push 更新远程分支
+
+
+11.git fetch
+https://zhuanlan.zhihu.com/p/42838850
+
+
+# 回滚相关
+1.回滚 先回滚本地 再推到服务器
+git reset --hard e62a911 回退到某次
+（这次提交的和后面提交的都没有,但服务器还是最新的，使用git pull拉到服务器最新）
+如果要推到服务器，此时如果用“git push”会报错，因为我们本地库HEAD指向的版本比远程库的要旧：
+所以我们要用“git push -f”强制推上去，就可以了）
+
+git reset --hard HEAD^ 回退到上次
+git reset --hard HEAD~3 回退三次提交
+
+
+4.git 回滚
+https://www.cnblogs.com/yuqing6/p/6697874.html
+https://blog.csdn.net/lovesummerforever/article/details/71526900
+
+解决冲突相关:
+git出现冲突的情况:
+1.不同分支下的merge，我们在本地修改了a文件并把a文件的修改push到了test分支下，
+接着我们切换到master分支下将test分支上的修改合并到当前master分支下时，
+如果master分支下的a文件也有修改的话，这时在进行merge也会产生冲突。
+2.同一个分支下的pull或push，此时我们在进行pull或push时如果远程分支下下的a文件也有修改，
+那么代表本地和远程分支的代码是不同步的，此时也会引起冲突。
+
+Git冲突解决方案：
+要想不产生冲突的习惯是：修改文件之前先git pull,获取远程最新的代码，
+同步完了之后再对代码进行修改；亦或者事先和同时操作代码的同事沟通，
+这样可以大概率的避免冲突的产生。
+
+
+合并到master之前把master合并到feature才是基本流程。
+
+
+方法一（推荐使用）：
+git pull 出现冲突后丢弃本地冲突文件修改，采用远程文件覆盖本地文件git checkout [文件路径]
+例：git checkout test/src/main/resources/spring-shiro.xml

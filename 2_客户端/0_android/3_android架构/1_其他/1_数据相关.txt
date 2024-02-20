@@ -1,0 +1,123 @@
+
+
+数据存储：
+
+Android的数据存储形式。
+（1）使用SharedPreferences存储数据
+特点：使用简单，应用内数据共享，但只支持基本数据类型。
+（2）使用文件存储
+（3）SQLite数据库存储
+（4）使用ContentProvider存储数据（原理还是123中的一种，只是可以对外共享）
+
+
+文件存储是android中最基本的一种数据存储方式:
+所有的文件都默认存储到/data/data/<packagename>/files/目录下。
+
+SharedPreferences使用键值对的方式来存储数据的:
+存储到/data/data/<packagename>/shared_prefs/目录下。
+
+SQLite:
+存储到/data/data/<packagename>/databases/目录下。
+
+
+
+
+数据传递：
+两个Activity之间怎么传递数据？
+答: 可以在Intent对象中利用Extra来传递存储数据。
+
+Intent的作用
+Android中提供了Intent机制来协助应用间的交互与通讯，
+Intent不仅可用于应用程序之间，也可用于应用程序内部的activity,
+service和broadcast receiver之间的交互。
+Intent这个英语单词的本意是“目的、意向、意图”。
+
+
+intent是android程序中各组件之间进行交互的一种要的方式，它不仅可以指明当前组件的
+想要执行的动作，还可以在不同组件之间传递数据。
+Intent intent = new Intent(FirstActivity.this,SeondActivity.class);
+startActivity(intent);   //系统提供的方法
+
+
+
+
+
+只能主线程更新ui：
+Android是不允许在子线程中进行UI操作的，
+我们需要通过这个方法将线程切换到主线程，然后更新UI元素。
+
+Android 规定访问 UI 只能在主线程中进行，因为 Android 的 UI 控件不是线程安全的，
+多线程并发访问会导致 UI 控件处于不可预期的状态。
+
+为什么系统不对 UI 控件的访问加上锁机制？
+缺点有两个：
+加锁会让 UI 访问的逻辑变得复杂；
+其次锁机制会降低 UI 访问的效率。
+如果子线程访问 UI，那么程序就会抛出异常。
+
+
+
+
+Android Handler消息机制
+
+跨线程通信。当子线程中进行耗时操作后需要更新UI时，
+通过Handler将有关UI的操作切换到主线程中执行。
+
+四要素：
+Message（消息）：
+MessageQueue（消息队列）：
+Handler（处理者）：
+Looper（消息泵）：分发消息
+
+
+解析异步消息处理机制
+首先在主线程当中创建一个Handler对象，并重写handleMessage()方法。
+然后当子线程中需要进行UI操作时，就创建一个Message对象，
+并通过Handler将这条消息发生出去。之后这条消息会被添加到MessageQueue的队列中等待处理，
+而looper则会一直尝试MessageQueue中取出待处理消息，
+最后分发回Handle的handleMessage()方法中。
+由于Handle是在主线程中创建的，所以此时handleMessage()方法
+中的代码也会在主线程中运行，于是我们在这里就可以安心进行UI操作了。
+
+
+
+
+
+网络通信：
+使用new thread来进行网络的耗时操作，但注意run方法无法返回值，
+因为run方法的返回值不是sendhttprequest的返回值，没有意义。
+
+
+一般只需要new出url对象，并传入目标的网络地址，然后调用一下openConnection()方法即可。
+Url url = new Url("http://www.baidu.com");
+HttpURLConnection connetcion = (HttpURLConnection)url.openConnection();
+GET表示希望从服务器那里获取数据 POST表示希望提交数据给服务器
+connetcion.setRequestMethod("GET");
+设置连接超时，读取超时
+connetcion.setConnectTimeout(8000);
+connetcion.setReadTimeout(8000);
+调用getInputStream()方法获取服务器返回的输入流
+InputStream in = connection.getInputStream();
+调用disconnect()方法将Http连接关闭。
+connetcion.disconnetction();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

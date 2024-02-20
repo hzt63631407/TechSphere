@@ -1,0 +1,23 @@
+
+
+
+soapUI 是一个开源测试工具，通过 soap/http 来检查、调用、实现
+Web Service 的功能/负载/符合性测试。该工具既可作为一个单独的测试软件使用，
+也可利用插件集成到 Eclipse，maven2.X，Netbeans 和 intellij 中使用。
+把一个或多个测试套件（TestSuite）组织成项目，每个测试套件包含一个或多个测试用例（TestCase），
+每个测试用例包含一个或多个测试步骤，包括发送请求、接受响应、分析结果、改变测试执行流程等。
+该工具能够支持接口自动化测试和接口性能测试，也支持和 Jenkins 做持续集成测试。
+
+
+
+
+SoapUI是用于Webservice接口的测试工具
+SOAP=HTTP+XML
+soap请求是HTTP POST的一个专用版本，
+遵循一种特殊的xml消息格式Content-type设置为: text/xml任何数据都可以xml化。
+WebService基于soap协议
+
+当你要调用一个你本服务的内容的时候，不涉及到跨域的问题，你可以使用HttpService的方式。
+如果，你需要在后台调用一个其它应用的服务，这个时候，你必须要用webService的方式来调用。
+（解决跨域问题）
+

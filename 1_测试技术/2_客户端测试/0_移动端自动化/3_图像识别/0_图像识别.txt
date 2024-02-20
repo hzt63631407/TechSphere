@@ -1,0 +1,29 @@
+
+
+
+
+一、图片对比
+https://blog.csdn.net/sinat_18866031/article/details/121775432
+
+基础opencv实现点击：
+https://www.likecs.com/show-813835.html
+https://blog.csdn.net/m0_67392811/article/details/123593105
+
+
+
+
+二、opencv方法
+模版匹配方法 平方差匹配法 相关匹配法 归一化平方差匹配法
+CV_TM_SQDIFF_NORMED            归一化处理后，最大值为1，最小值0
+
+阀值设置的是0.80，
+如果可信度是大于0.8，那么就认为是相同的。
+内部也有其他工具，也设置的是0.8，而且好像airtest设置的也是0.8。
+
+
+其他：
+平方差匹配法，相关匹配法
+https://blog.csdn.net/longmingtao/article/details/109689296
+https://blog.51cto.com/u_13661275/3222993
+
+

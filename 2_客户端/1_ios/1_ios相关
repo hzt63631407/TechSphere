@@ -1,0 +1,40 @@
+
+
+
+
+1.App ID和Bundle ID有什么不同?
+App ID是一个组合字符串，它包括两个部分，一个是开发团队的ID，另一个是标识应用的Bundle ID.
+
+Bundle ID也就是App ID的后半部分，是一个App应用的唯一标识符，类似包名。
+
+
+
+2.scheme
+ios scheme可以在应用外部打开应用内部的界面
+（比如 备忘录打开快手app）
+也可以自己app内部的。
+
+
+
+
+3.ios获取崩溃
+你可以从系统设置->隐私和安全->分析与改进->分析数据里面找到你当时的崩溃日志，
+右上角点击分享可以各种方式分享出去
+https://www.jianshu.com/p/69e6e91d3297
+
+1.xcode-window-devices and simulators - views and logs 。（有延迟）
+
+mac电脑，app-其他-控制台，选择设备，开始流式传输，可以看到系统日志。（有延迟）
+
+
+
+
+4.ios装包/查看是否越狱
+可以用爱思助手
+https://baijiahao.baidu.com/s?id=1741649947814104656&wfr=spider&for=pc
+
+
+
+
+
+

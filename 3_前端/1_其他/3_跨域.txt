@@ -1,0 +1,64 @@
+
+
+
+
+
+所谓同源是指，域名，协议，端口均相同，不明白没关系，举个栗子：
+
+http://www.123.com/index.html 调用 http://www.123.com/server.php （非跨域）
+
+http://www.123.com/index.html 调用 http://www.456.com/server.php （主域名不同:123/456，跨域）
+
+http://abc.123.com/index.html 调用 http://def.123.com/server.php （子域名不同:abc/def，跨域）
+
+http://www.123.com:8080/index.html 调用 http://www.123.com:8081/server.php （端口不同:8080/8081，跨域）
+
+http://www.123.com/index.html 调用 https://www.123.com/server.php （协议不同:http/https，跨域）
+
+请注意：localhost和127.0.0.1虽然都指向本机，但也属于跨域。
+
+
+
+
+
+跨域:
+https://segmentfault.com/a/1190000040485198
+
+
+
+如何实现跨域？
+实现跨域有以下几种方案：
+
+服务器端运行跨域 设置 CORS 等于 *；
+在单个接口使用注解 @CrossOrigin 运行跨域；
+使用 jsonp 跨域；
+
+
+
+
+
+
+
+跨域:
+https://www.cnblogs.com/zouhong/p/14366779.html
+https://www.cnblogs.com/deng-cc/p/6322136.html
+https://segmentfault.com/a/1190000040485198
+
+
+所谓同源（即指在同一个域）就是两个页面具有相同的协议（protocol），
+主机（host）端口号（port）
+
+非同源限制
+1.无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB
+2.无法接触非同源网页的 DOM
+3.无法向非同源地址发送 AJAX 请求，即 XHR 请求
+
+解决方法：
+1.避免非同源限制:JSONP
+2.跨源资源共享方案
+3.使用 Nginx 反向代理
+
+
+
+
+

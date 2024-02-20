@@ -1,0 +1,30 @@
+
+
+1.git checkout -b activty origin/activty时报错
+fatal: 'origin/hotfix_20180820' is not a commit and a branch
+查看远程分支是否已经创建，如果没有，先创建，如果创建了，先拉取远程分支git pull origin
+然后再本地创建。
+
+
+
+2.git checkout -b activty origin/activty时报错
+fatal: Cannot update paths and switch to branch 'dev2' at the same time.
+Did you intend to checkout 'origin/dev2' which can not be resolved as commit?
+表示拉取不成功。我们需要先执行
+git fetch
+然后再执行
+git checkout -b 本地分支名 origin/远程分支名
+即可。
+
+
+
+3.ssh登录报错
+The RSA host key for ip has changed, and the key for the corresponding ip addres
+https://blog.csdn.net/weixin_39025362/article/details/107100468
+
+
+4.github git push报错
+remote: Support for password authentication was removed on August 13, 2021.
+https://blog.csdn.net/weixin_41010198/article/details/119698015
+New personal access token:tao1268181
+token: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          （输入密码时用token代替）

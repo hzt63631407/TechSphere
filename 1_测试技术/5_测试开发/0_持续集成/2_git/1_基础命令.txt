@@ -1,0 +1,19 @@
+git 版本管理工具（soucrtree）
+首选 git clone
+git checkout
+git add
+git commit
+git push
+git pull
+git merge   向主分支合代码
+git rebase  同步主分支的代码
+解决冲突，上传的时候有冲突，有一个原则，本地的先不修改，先把远程的拉下来，
+然后在进行修改，再进行上传。
+git ingnore 有一些文件不想上传到服务器，只想保留在本地，log，
+bin/
+*.log
+*.class
+git stash
+git pop
+
+

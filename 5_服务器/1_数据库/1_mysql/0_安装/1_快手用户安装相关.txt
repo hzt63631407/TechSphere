@@ -1,0 +1,84 @@
+Mysql
+1. cd /usr/local/Cellar/mysql/8.0.12/support-files mysql.server start
+2.ps aux | grep mysql
+3.show global variables like 'port';
+4.mysql.server start
+5.mysql -u root -p
+6.set password for root@localhost = password(‘123’);
+SET PASSWORD FOR root@localhost = PASSWORD('1234');
+SET PASSWORD = PASSWORD(‘qwe123’);
+quit
+CREATE USER ‘test’@‘localhost’ IDENTIFIED BY ‘1234’;
+CREATE USER 'test' IDENTIFIED BY '1234';
+查询所有用户
+select user,host from mysql.user; 
+
+查询用户密码命令：mysql> select host,user,authentication_string from mysql.user;
+
+二、使用ALTER修改root用户密码,方法为 ALTER user 'root'@'localhost' IDENTIFIED BY '新密码'。如下：
+ALTER  USER 'root'@'localhost' IDENTIFIED BY ‘Hzt123#’;
+
+
+ERROR 2059 (HY000): Authentication plugin 'caching_sha2_password' cannot be loaded
+看样子是验证插件问题的，排查下:
+SELECT `user`, `host`, `authentication_string`, `plugin` FROM mysql.user;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'newrootpassword’;shiw
+root 密码：newrootpassword
+
+查看当前用户：
+select user();
+
+
+
+mysql status 命令 start stop restart status(查看服务状态)
+
+
+
+CREATE USER 'test’@‘localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON testDB.* . * TO ’test’@‘localhost’;
+
+create DATABASE testDB;
+
+SHOW DATABASES;
+
+show tables;
+
+GRANT ALL privileges ON testDB.* TO 'test’;
+
+
+update profile set name = name + 10 where date = '2018-09-10 10:20:29';
+
+select * from  profile_0 where user_id = ’119202’;
+
+mysql -utest_rw -hbjpg-d190.yz02 -p54rltyi5BCdcm06wu22A0brvvzU5uDgB -P15063
+
+
+
+权限
+使用root用户登录到本地Mysql服务器test中。
+mysql -h loaclhost -u root -p test
+grant select，insert on * . * to 'grantuser'@'loaclhost'
+indentified by 'grantpwd'
+with garnt option;
+
+
+备份与恢复
+备份：不需要进入数据库 mysqldump -u root -p testdb > /Users/huangzetao/testdb.sql
+恢复：不需要进入数据库 mysqldump -u root -p testdb < /Users/huangzetao/testdb.sql
+
+表的导出：
+select * from test.person into outfile "c:\person.text";
+
+
+查看mysql版本号：select version();
+查看当前用户的连接数：select connection_id();
+查看当前用户的连接信息：select processlist;
+
+
+
+https://www.cnblogs.com/wanghetao/p/3806888.html
+
+https://www.cnblogs.com/zzqc/p/9192217.html
+
+
+
