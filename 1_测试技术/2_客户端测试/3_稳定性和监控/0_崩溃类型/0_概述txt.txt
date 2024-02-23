@@ -1,0 +1,29 @@
+
+
+
+
+安卓崩溃三类:
+1.java崩溃 程序奔溃或闪退
+1.1 outofMemoryError
+1.2 Exception
+IOException
+NullPointerException
+FileNotFoundException
+indexException
+2.native崩溃，更底层一些，是一些so文件，c++的崩溃
+Native崩溃一般都 是因为在Native代码中访问非法地址，
+比如说：数组越界、野指针
+3.anr 程序未响应。
+
+
+
+IOS 和 android crash日志抓取
+iOS：
+1.通过 iTunes Connect
+（Manage Your Applications - View Details - Crash Reports）获取用户的 crash 日志
+2.通过 Xcode 从你的设备上获得崩溃日志
+3.自己在程序中添加崩溃捕捉代码，如果应用集成第三方 SDK，如百度统计
+Android：
+1.通过集成第三方 SDK，如百度统计、友盟统计等
+2、发版时使用加固工具，他们也会收集错误日志，如 360 加固
+3、在程序中添加程序异常崩溃的捕捉代码，保存到本地文件中

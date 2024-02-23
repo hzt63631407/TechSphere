@@ -1,0 +1,47 @@
+
+
+
+
+一、命令获取
+1.获取内存
+adb dumpsys meminfo pid   是pss
+
+2.获取cpu
+adb shell top -m 10 -s cpu
+（-m显示最大数量，-s 按指定行排序）
+
+
+adb dumpsys meminfo
+adb shell am start -W '+package_name+'/'+activity_name+'
+adb shell dumpsys battery（电量就是功耗，获取2个时间段）
+（https://blog.csdn.net/weixin_43639443/article/details/89242447）
+（1.关闭其他应用，关闭usb调试 2.设置屏幕不自动关闭）
+
+
+
+
+二、网址
+adb命令获取性能
+https://blog.csdn.net/xiaxl/article/details/117918072
+https://tool.4xseo.com/a/11284.html
+https://www.likecs.com/show-281634.html
+
+Android Studuio测性能
+https://blog.csdn.net/weixin_44794371/article/details/119248783
+
+python获取cpu和内存
+https://blog.csdn.net/weixin_39960147/article/details/111671889
+
+
+
+
+三、ffmpeg使用
+https://zhuanlan.zhihu.com/p/402824002
+ffmpeg可以对视频进行分针
+在ffmpeg的bin目录下，使用指令将视频文件转化为图片，间隔为30ms
+指令：ffmpeg.exe -i<视频文件路径> -r 30 -s 640x480 <输出每帧图片的目录路径>/%d.png
+
+
+
+
+

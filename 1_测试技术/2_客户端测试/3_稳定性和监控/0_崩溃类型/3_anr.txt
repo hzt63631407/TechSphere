@@ -1,0 +1,29 @@
+
+
+
+
+ANR是Android中一个独有的概念
+它的全称是Application Not Responding(应用程序无响应)
+当卡顿超过一定时间(一般是5秒)时就会出现ANR对话框。
+ios没有anr。
+
+anr产生的根本原因主要有两种：
+1.主线程执行了耗时操作，比如数据库操作或网络编程，耗时太长
+2.主线程可能处于阻塞状态，等待获取锁。
+ANR发生以后，在Logcat中有相应的日志输出，
+并且会在/data/anr/目录下输出一个traces.txt文件
+
+
+ANR产生的原因不同，超时时间也不尽相同，从本质上讲，产生ANR的原因有三种，
+大致可以对应到Android中四大组件中的三个
+(Activity/View、BroadcastReceiver和Service)。
+1.KeyDispatchTimeOut(Activity/View)原因是View的按键事件
+或触摸事件在特定的事件（5秒）内无法得到响应.
+2.BroadcastTimeout  前台广播10秒，后台广播60秒。
+3.ServiceTimeout ：Service在特定的时间内（20s）生命周期函数无法处理完成。
+
+
+
+
+
+
