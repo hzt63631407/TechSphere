@@ -2,12 +2,12 @@
 
 
 
-问题需要先明确，要加机器还是需要进行调优。
+一、问题需要先明确，要加机器还是需要进行调优。
 
 
-性能调优：
+
+二、性能调优：
 分为：代码调优，配置调优
-
 
 1.网络带宽调优
 调优思路：修改返回内容的大小。
@@ -39,7 +39,7 @@ flash、在线影视等类型建议选择50M带宽以上。
 
 
 2.java程序调优
-一般不建议修改配置，修改代码。
+一般不建议jvm修改配置，修改代码。
 
 通过查看jvm的内存分配（具体参考jvm）
 排查思路（没有oom）
@@ -51,9 +51,8 @@ flash、在线影视等类型建议选择50M带宽以上。
 https://blog.csdn.net/weixin_42615154/article/details/109454317
 （当出现了outofmemoryerror是设置生成（快照）文件，保存内存时的文件。）
 
-调优思路：
+jvm调优思路：
 https://blog.csdn.net/weixin_69413377/article/details/126194396
-
 
 性能测试中，吞吐量出现了波浪状
 1.怀疑是 jvm垃圾回收导致了stw
@@ -61,12 +60,6 @@ https://blog.csdn.net/weixin_69413377/article/details/126194396
 3.再去优化gc
 切换不同的垃圾回收器，这个是用的最多的gc方面的优化手段
 gc-参数很多，调了某一个参数，不一定管用。多次配置，反复尝试。
-
-
-jvm也可以用
-也可以用grafana+promthemus监控
-
-
 
 
 3.redis、mq调优
@@ -78,8 +71,6 @@ mq
 使用调优和参数调优，参考官方文档
 如：消费速度慢，加机器，加并行进程
 如：jvm调优
-
-
 
 
 4.mysql调优
@@ -100,7 +91,9 @@ mq
 
 
 
-服务器上用liunx命令具体排查：
+
+
+三、服务器上用liunx命令具体排查：
 可以查看用top查看，一般是java进程
 （如果是4核，400%，gafafa是100%）
 top - H -p 79478(进程号)
@@ -111,7 +104,8 @@ java程序cpu过高，查看日志。
 
 
 
-性能调优
+
+四、性能调优攻略
 https://blog.csdn.net/blackbattery/article/details/82291542
 https://www.cnblogs.com/mzsg/tag/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/
 
