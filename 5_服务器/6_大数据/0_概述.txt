@@ -1,0 +1,32 @@
+
+
+
+
+一、大数据的基本概念
+大数据指的就是要处理的数据是TB级别以上的数据。大数据是以TB级别起步的。
+在计算机当中，存放到硬盘上面的文件都会占用一定的存储空间
+
+https://blog.csdn.net/Bejpse/article/details/126388087
+
+
+
+
+
+二、Hadoop 是软件
+Hadoop 是一个提供分布式存储和计算的开源软件框架
+（导入一个第三方库，java用代码进行连接）
+（类似mq这样，本质也是数据库，可以理解为一个数据存储）
+
+
+mysql和hadoop的区别
+https://codeleading.com/article/21285450932/
+
+
+
+hive是一个建立在Hadoop上的开源数据仓库软件，
+可以将存储在Hadoop文件中的结构化、半结构化数据文件映射为一张数据库表，
+基于表提供了一种类似SQL的查询模型，称为hive查询语言（HQL），
+用于访问和分析存储在Hadoop文件中的大型数据集。
+https://zhuanlan.zhihu.com/p/479415280
+
+

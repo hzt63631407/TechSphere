@@ -1,0 +1,99 @@
+
+
+
+
+一、为什么会有websocket
+
+WebSocket是实现了浏览器与服务器的全双工通信协议，一个模拟Socket的应用层协议。
+
+一直以来，HTTP是无状态、单向通信的网络协议，即客户端请求一次，服务器回复一次，默认情况下，
+只允许浏览器向服务器发出请求后，服务器才能返回相应的数据。如果想让服务器消息及时下发到客户端
+需要采用类似于轮询的机制，大部分情况就是客户端通过定时器使用ajax频繁地向服务器发出请求。
+这样的做法效率很低，而且HTTP数据包头本身的字节量较大，浪费了大量带宽和服务器资源。
+
+为了提高效率，HTML5推出了WebSocket技术。
+
+WebScoket是一种让客户端和服务器之间能进行全双工通信(full-duplex)的技术。
+它是HTML最新标准HTML5的一个协议规范，本质上是个基于TCP的协议，
+它通过HTTP/HTTPS协议发送一条特殊的请求进行握手后创建了一个TCP连接，
+此后浏览器/客户端和服务器之间便可随时随地以通过此连接来进行双向实时通信，且交换的数据包头信息量很小。
+
+同时为了方便使用，HTML5提供了非常简单的操作就可以让前端开发者直接实现socket通讯，
+开发者只需要在支持WebSocket的浏览器中，创建Socket之后，
+通过onopen、onmessage、onclose、onerror四个事件的实现即可处理Socket的响应。
+
+注意：websocket是HTML5技术的一部分，但是websocket并非只能在浏览器或者HTML文档中才能使用，
+事实上在python或者C++等语言中只要能实现websocket协议报文，均可使用。
+
+WebSocket可以发送JSON、XML、HTML或图片等任意格式的数据。
+
+
+
+
+
+二.http与websocket区别
+https://www.cnblogs.com/mttcug/p/8110619.html
+
+http:客户端与服务器通信，必须要有客户端发起然后服务器返回结果。客户端是主动的，服务器是被动的。
+websocket:建立了WenSocket之后服务器不必在浏览器发送request请求之后才能发送信息到浏览器。
+这时的服务器已有主动权想什么时候发就可以发送信息到服务器
+
+相同点
+1. 都是一样基于TCP的，都是可靠性传输协议。
+2. 都是应用层协议。
+
+不同点
+1. WebSocket是双向通信协议，模拟Socket协议，可以双向发送或接受信息。HTTP是单向的。
+2. WebSocket是需要浏览器和服务器握手进行建立连接的。
+而http是浏览器发起向服务器的连接，服务器预先并不知道这个连接。
+
+联系：
+WebSocket在建立握手时，数据是通过HTTP传输的。但是建立之后，在真正传输时候是不需要HTTP协议的。
+
+
+
+
+
+三.Long poll 和Ajax轮询以及WebSocket的原理
+https://www.cnblogs.com/Herzog3/p/5088130.html
+
+1、Ajax轮询的原理。（客户端主动发请求）
+场景如下：
+客户端：啦啦啦，有没有新信息(Request)
+服务端：没有（Response）
+客户端：啦啦啦，有没有新信息(Request)
+服务端：没有。。（Response）
+客户端：啦啦啦，有没有新信息(Request)
+服务端：你好烦啊，没有啊。。（Response）
+客户端：啦啦啦，有没有新消息（Request）
+服务端：好啦好啦，有啦给你。（Response）
+客户端：啦啦啦，有没有新消息（Request）
+服务端：。。。。。没。。。。没。。。没有（Response） ---- loop
+
+2.Long poll和Ajax
+客户端：啦啦啦啦，有新信息么？
+服务端：月线正忙，请稍后再试（503 Server Unavailable）
+客户端：。。。。好吧，啦啦啦，有新信息么？
+服务端：月线正忙，请稍后再试（503 Server Unavailable）
+客户端：
+然后服务端在一旁忙的要死：冰箱，我要更多的冰箱！更多。。更多。。
+
+
+3.Websocket原理
+客户端：啦啦啦，我要建立Websocket协议，需要的服务：chat，Websocket协议版本：17（HTTP Request）
+服务端：ok，确认，已升级为Websocket协议（HTTP Protocols Switched）
+客户端：麻烦你有信息的时候推送给我噢。。
+服务端：ok，有的时候会告诉你的。
+服务端：balabalabalabala
+服务端：balabalabalabala
+服务端：哈哈哈哈哈啊哈哈哈哈
+服务端：笑死我了哈哈哈哈哈哈哈
+
+
+
+
+
+
+
+
+

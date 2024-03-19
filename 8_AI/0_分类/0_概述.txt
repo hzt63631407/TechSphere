@@ -1,0 +1,69 @@
+
+
+
+
+人工智能可以按照不同的分类方式进行划分。
+按照分支进行分类：
+
+1.机器学习：
+监督学习（Supervised Learning）：通过已标记的训练数据来训练模型，用于预测新数据的标签或属性。
+无监督学习（Unsupervised Learning）：从未标记的数据中发现模式和结构，用于聚类、降维、异常检测等任务。
+强化学习（Reinforcement Learning）：通过智能体与环境的交互来学习最优策略，以最大化累积奖励。
+
+2.计算机视觉：
+图像分类（Image Classification）：将输入图像分为不同的类别或标签。
+目标检测（Object Detection）：在图像中定位和识别多个目标的位置和类别。
+语义分割（Semantic Segmentation）：对图像中的每个像素进行分类，实现像素级别的语义理解。
+实例分割（Instance Segmentation）：在图像中同时识别和分割多个对象实例。
+
+3.数据挖掘：
+关联规则挖掘（Association Rule Mining）：发现数据中的频繁项集和关联规则，用于揭示数据之间的相关性。
+聚类分析（Clustering Analysis）：将数据分组为相似的集群，用于发现数据的内在结构。
+分类与回归（Classification and Regression）：使用已有数据来构建模型，对新数据进行分类或预测。
+异常检测（Anomaly Detection）：识别与正常数据模式不符的异常数据点或行为。
+
+4.自动规划（Automated Planning）：
+利用算法和逻辑推理，在给定的约束条件下生成符合目标的行动序列。
+
+5.迁移学习（Transfer Learning）：
+将已学习的知识或模型应用于新任务，以提高学习效果和泛化能力。
+
+
+
+
+
+按照技术领域进行分类：
+
+1.自然语言处理（NLP）：
+词法分析（Lexical Analysis）：对文本进行分词、词性标注等处理。
+句法分析（Syntactic Analysis）：分析文本的句法结构、语法关系等。
+语义分析（Semantic Analysis）：理解文本的意义、语义关系等。
+机器翻译（Machine Translation）：将文本从一种语言自动翻译为另一种语言。
+
+2.语音识别与语音合成：
+语音识别（Speech Recognition）：将语音信号转换为文本表示。
+语音合成（Speech Synthesis）：将文本转换为语音信号。
+
+3.专家系统：
+规则引擎（Rule-based Systems）：基于预定义的规则和条件进行推理和决策。
+知识表示与推理（Knowledge Representation and Reasoning）：表示和处理领域专家的知识，并进行推理和推断。
+专家系统开发（Expert System Development）：设计、构建和部署专家系统。
+
+4.推荐系统：
+协同过滤（Collaborative Filtering）：根据用户行为和兴趣，推荐与其类似的用户或物品。
+内容过滤（Content-based Filtering）：根据物品的特征和用户的偏好，推荐相关的物品。
+混合推荐（Hybrid Recommender Systems）：结合多种推荐算法和方法，提供个性化的推荐。
+
+5.知识图谱：
+知识表示（Knowledge Representation）：将知识以机器可理解的方式进行表示，如图形、本体等。
+知识抽取与挖掘（Knowledge Extraction and Mining）：从大规模文本数据中提取和挖掘结构化的知识。
+知识推理与查询（Knowledge Reasoning and Querying）：对知识图谱进行推理和查询，以获取新的知识或回答问题。
+
+6.自动驾驶（Autonomous Driving）：利用感知、决策和控制技术使车辆能够在道路上自主行驶。
+
+7.增强现实（Augmented Reality）：将虚拟信息与现实世界场景相结合，提供增强的感知和交互体验。
+
+8.虚拟现实（Virtual Reality）：通过计算机生成的虚拟环境，模拟身临其境的体验。
+
+9.机器人技术（Robotics）：研究和开发能够感知、决策和执行任务的机器人系统。
+

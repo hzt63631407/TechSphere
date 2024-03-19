@@ -1,0 +1,83 @@
+
+
+
+
+一、Service（服务）是一个在后台运行，而且没有用户界面应用组件。
+service的两个作用。
+1.后台运行，一个 Service 可能会处理网络操作、播放音乐、操作文件I/O。
+比如说：用户启动了其他Activity，我可以播放音乐，下载
+服务的使用场景
+后台音乐的播放
+下载
+
+2.跨进程，或者与内容提供者（content provider）交互，所有这些活动都是在后台进行的。
+
+https://www.likecs.com/show-337084.html
+
+
+
+
+
+二、Service生命周期
+onCreate() :
+首次创建服务时，系统将调用此方法。如果服务已在运行，则不会调用此方法，该方法只调用一次。
+
+onStartCommand() :
+当另一个组件通过调用startService()请求启动服务时，系统将调用此方法。
+
+onDestroy() :
+当服务不再使用且将被销毁时，系统将调用此方法。
+
+onBind() :
+当另一个组件通过调用bindService()与服务绑定时，系统将调用此方法。
+
+onUnbind() :
+当另一个组件通过调用unbindService()与服务解绑时，系统将调用此方法。
+
+onRebind() :
+当旧的组件与服务解绑后，另一个新的组件与服务绑定，onUnbind()返回true时，系统将调用此方法。
+
+
+
+
+
+三、Service分为本地服务（LocalService）和远程服务（RemoteService）：
+1、本地服务依附在主进程上而不是独立的进程，这样在一定程度上节约了资源，
+另外Local服务因为是在同一进程因此不需要IPC，
+也不需要AIDL。相应bindService会方便很多。主进程被Kill后，服务便会终止。
+2、远程服务为独立的进程，对应进程名格式为所在包名加上你指定的android:process字符串。
+由于是独立的进程，因此在Activity所在进程被Kill的时候，该服务依然在运行，
+
+
+Service有两个启动方法，分别是Context.startService()和Context.bindService()。
+1. 使⽤startService启动服务的⽣命周期⽅法：
+使⽤这种⽅法启动⼀个Service，
+在Service启动后该Service和启动该Service的Activity就没有关系了。
+
+但是这种发放启动的Service不能和Activity进⾏交互。
+通常情况下使⽤startService调⽤的Service⽣命周期⽅法为：onCreate()->onStartCommand()。
+其中多次调⽤startService只调⽤⼀次onCreate(), 但可以多次调⽤onStartCommand().
+当服务需要退出时，调⽤stopService，就会调⽤Service的onDestroy()⽅法。
+
+
+2.使⽤bindService启动服务的⽣命周期⽅法：
+使⽤这种⽅法启动的Service是和调⽤者Activtiy同⽣命的，当Activtiy退出时，
+服务也同时销毁了。这种⽅法启动的Service能够和Activity进⾏交互。
+
+Android Service两种启动方式详解
+https://blog.51cto.com/u_15328720/3412677
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

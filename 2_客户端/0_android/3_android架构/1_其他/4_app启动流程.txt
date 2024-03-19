@@ -1,7 +1,0 @@
-
-app启动流程
-1.Luncher进程收到消息，通过Binder发消息给system_server。
-2.system_server的ams经过处理之后调用Process.start，再发给Zygote。
-3.Zygote收到之后，fork出app进程，并执行ActivityThread.main()方法。
-4.ActivityThread绑定到ams线程上。
-5.创建application对象，并调用onCreate()方法，

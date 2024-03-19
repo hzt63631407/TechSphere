@@ -1,17 +1,22 @@
 
-（因为http是无协议，要保持身份所以有cookie有session）
-
-https://www.cnblogs.com/wuyepeng/p/9801023.html
 
 
-一、为什么会有COOKIE这种机制
+
+
+一、为什么有cookie和session
+因为http是无协议，要保持身份所以有cookie有session
+
 1.知道是谁进行了请求，不需要重复验证账号，密码等。
 2.同一个域名下的页面不需要重复登陆。
 cookie域名范围：
 https://blog.csdn.net/huangjuan0229/article/details/131166462
+https://www.cnblogs.com/wuyepeng/p/9801023.html
 
 
-1.在一个网站上面，我发起一次请求，那服务器怎么知道我是谁？是谁发起的这次请求呢，
+
+
+
+2.在一个网站上面，我发起一次请求，那服务器怎么知道我是谁？是谁发起的这次请求呢，
 HTTP协议是无状态的协议，浏览器的每一次请求，服务器都当做一次新请求，
 但是在实际应用中我们需要知道这个请求来自于谁，需要查找哪些信息返回给访问者，
 这个时候就引入了COOKIE机制，COOKIE机制是什么呢？
@@ -31,7 +36,7 @@ https://blog.csdn.net/qq_44700535/article/details/91890172
 （存储上一次的返回值，可以做缓存）
 
 
-2.比如：我在www.a.com/login.php里面登陆了，我在www.a.com/index.php 也希望是登陆状态，
+3.比如：我在www.a.com/login.php里面登陆了，我在www.a.com/index.php 也希望是登陆状态，
 那咋搞呢？我不可能这2个页面我都去登陆一遍吧。或者用笨方法这2个页面都去查询数据库，
 如果有登陆状态，就判断是登陆的了。
 cookie是把少量的信息存储在用户自己的电脑上，
@@ -39,7 +44,6 @@ cookie是把少量的信息存储在用户自己的电脑上，
 只要设置它的存储路径在域名www.a.com下 ，那么当用户用浏览器访问时，
 php就可以从这个域名的任意页面读取cookie中的信息。
 （cookie是缓存，保存在客户端）
-
 
 
 

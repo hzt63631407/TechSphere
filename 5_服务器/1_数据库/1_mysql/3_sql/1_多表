@@ -1,0 +1,76 @@
+
+
+
+
+一.多表查询
+https://blog.csdn.net/m0_57659908/article/details/121104487
+
+默认是内链接（取交集）
+外链接有两种 左链接和右链接
+
+select * from A,b where A.id=b.id
+
+select a.Name, p.Name from ADMIN a, person p where person.id = admin.id
+
+内链接 inner join on(on 可以省略) 找出交集，其实不用
+
+select (* 或者 persons.lastname,persons.fristname),
+from persons
+inner join oders
+persons.id = orders.id (相等)
+（and inner join 表 persons.name = orders.name）
+odery by persons.lastname;
+
+
+2.左右链接
+以左表为主表，查询出满足条件的内容。查询到的内容是左表全部的内容，
+和右表满足要求的内容。可能会出行右表内容为为空的可能。
+select b.id,b.title,u.name from blog b left join  user u on u.id=b.user_id;
+
+以右表为主表，查询出满足条件的内容。查询到的内容是右表全部的内容，
+和左表满足要求的内容。可能会出行左表内容为为空的可能。
+select b.id,b.title,u.name from blog b right join  user u on u.id=b.user_id
+
+
+可以用 EXCEPT 来取差集
+select * from ta where col1 = xxx
+except
+select * from ta where col2 = yyy;
+
+
+
+
+二、多表嵌套
+
+SELECT
+    b.tag,
+    count(*) tag_cnt
+FROM
+    exam_record a
+LEFT JOIN examination_info b ON a.exam_id = b.exam_id
+# 查询满足：月均完成试卷数不小于3的用户
+WHERE
+    a.uid IN (
+        SELECT
+            uid
+        FROM
+            exam_record
+        WHERE
+            submit_time IS NOT NULL
+        GROUP BY
+            uid,
+            DATE_FORMAT(submit_time, '%Y%m')
+        HAVING
+            COUNT(submit_time) > 2
+    )
+# 筛选之后，按examination_info表的tag进行分组统计，最后降序输出
+GROUP BY
+    b.tag
+ORDER BY
+    tag_cnt DESC
+
+
+
+
+
+

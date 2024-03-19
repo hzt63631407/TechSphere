@@ -4,7 +4,8 @@
 
 安卓单元测试：
 https://www.jianshu.com/p/aa51a3e007e2
-
+https://blog.csdn.net/kk_lzvvkpj/article/details/124759719
+https://blog.csdn.net/Agg_bin/article/details/120768579
 
 
 sdk自动化测试：

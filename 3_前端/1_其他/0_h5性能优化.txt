@@ -1,8 +1,9 @@
 
 
 
-https://blog.csdn.net/qq_24182885/article/details/105481031
-h5的性能优化：
+
+一、h5的性能优化：
 1.资源加载：预加载，先加载到本地
 2.图片的使用：压缩，图片的格式
 3.服务器部署：设置缓存，减少cookie
+https://blog.csdn.net/qq_24182885/article/details/105481031

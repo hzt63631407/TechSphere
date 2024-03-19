@@ -1,5 +1,8 @@
 
-鉴权方式
+
+
+
+一、鉴权方式
 我们常用的鉴权有四种：
 1、HTTP Basic Authentication
 2、session-cookie

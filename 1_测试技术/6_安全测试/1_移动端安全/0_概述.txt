@@ -2,28 +2,22 @@
 
 
 
-https://blog.csdn.net/aovenus/article/details/123016929
-
-https://blog.csdn.net/weixin_39190897/article/details/108762187
-
-http://m.rongsoft.com/article/2022/01/171542182301/
-
-测试工具
-Drozer
-
-
-
+一、移动安全测试分类
 1.安装包
 2.代码
-
 3、安全测试技能栈：
 工具：AppScan / 绿盟扫描
 技能：SQL注入、web安全知识掌握、
 防火墙、网络、数据库原理了解
-最重要的是：认识安全领域大佬 或 你本身就是大佬，
-黑白2道你都有认识的人，以免公司业内人士攻击。
 
 
 
-岗位还是有的，但是跟工控搭边的不是很多，我想再做二进制逆向
+
+
+移动安全测试分类
+https://blog.csdn.net/aovenus/article/details/123016929
+https://blog.csdn.net/weixin_39190897/article/details/108762187
+
+
+岗位还是有的，但是跟工控搭边的不是很多，我想再做二进制逆向，
 固件分析类的技术工作，等干不动了再去做合规性那些

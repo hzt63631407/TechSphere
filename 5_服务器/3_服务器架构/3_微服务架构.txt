@@ -1,0 +1,78 @@
+
+
+
+
+一、微服务和分布式的区别
+微服务：一个独立的职责单一的服务应用程序
+分布式：一个请求由多个系统协同进行处理
+
+
+分布式计算是一种计算模型，它利用多台计算机或服务器协同工作来解决复杂的计算问题。
+在分布式计算中，任务被分解为多个子任务，并在多台计算机之间分配和执行。
+
+微服务是一种软件架构风格，它将一个大型的应用程序拆分为一组小型、独立的服务。
+每个服务都可以独立开发、部署和扩展，通过轻量级的通信机制进行交互。
+每个微服务关注一个特定的业务功能，并通过接口进行通信。
+
+可以说，微服务是一种实现分布式计算的软件架构风格。(还有SOA架构)
+
+https://bbs.huaweicloud.com/blogs/338485
+https://blog.csdn.net/a745233700/article/details/117448077
+
+
+
+
+
+二、后端微服务架构
+为了统一管理微服务系统，可以部署一个统一的网关，作为系统的唯一入口。
+网关封装了系统内部架构，为每个客户端提供一个定制的API。
+
+（网关层，nginx）+java程序（springcloud）+redis，mq+mysql
+
+
+（后端服务类型 微服务）
+user-》slb(nginx)（运维层）-》apigatewai-》usersserver（微服务）-》
+mysql redis kafak-》第三方（如果是电商，支付服务）
+https://zhuanlan.zhihu.com/p/25861224（经典）
+
+
+
+
+
+
+三、微服务接口
+1.微服务之间是如何通讯的？
+同步通信：dobbo通过RPC远程过程调用、springcloud通过http接口等。
+异步：消息队列，如：RabbitMq、ActiveM、Kafka 等。
+
+
+
+2.微服务接口测试
+方案1 springcloud微服务接口，开起http接口，jmeter，postman。
+方案2 dubbo（微服务的RPC框架），RPC远程过程调用，底层采用tcp连接，dubbo协议。
+方案3 grpc
+dubbo是内部服务，服务器与服务器之间通信的接口。
+jmeter不支持，但是可以通过下载插件，打包jar包，测试dubbo
+
+
+
+3.SpringCloud 和 Dubbo 有哪些区别？
+1.dubbo是rpc，SpringCloud是http
+2.SpringCloud是一整套框架，dubbo是一个小型框架
+（我们的是springclud）
+
+
+
+4.SpringBoot和SpringCloud的不同
+1.SpringBoot专注于快速方便的开发单个个体微服务。
+2.SpringCloud是关注全局的微服务协调整理治理框架，
+它将SpringBoot开发的一个个单体微服务整合并管理起来，
+为各个微服务之间提供，配置管理、服务发现、断路器、路由、
+微代理、事件总线、全局锁、决策竞选、分布式会话等等集成服务
+
+
+
+5.微服务面试题
+https://blog.csdn.net/weixin_41384860/article/details/118384565
+
+

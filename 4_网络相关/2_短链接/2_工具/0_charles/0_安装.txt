@@ -1,12 +1,14 @@
 
+
+
+
+一、证书
 1.安卓7以上抓不了https，个人证书不信用，需要系统证书
 2.手机和电脑证书是分开，抓手机，只用装手机的证书
 3.每一个电脑抓包都需要往手机装特定的证书
+4.手机可以同时安装2个证书，自己电脑和快手mock。
 
 
-
-1.charles电脑不用装证书
-（自己的手机装了证书用其他人的电脑）
 
 
 2.安装证书
@@ -27,30 +29,26 @@ help——>ssl proxying
 
 
 
+
+
 3.安卓7以上手机，需要root
 https://blog.csdn.net/u010838555/article/details/104804695
 
 
-4.breakponits(可以编辑请求和返回的参数)
-设置断点——》Proxy ——>Breakpoint Settings
-(1)、把参数删掉，写*
-(2)、可修改请求
-(3)、可修改返回
-点击Execute （执行）。 另外 Abort （中止）， Cancel （取消）
-
-https://blog.csdn.net/f20052604/article/details/50867019
 
 
-5.学习网站
+
+
+4.学习网站
 https://blog.csdn.net/anualday/article/details/51423457
 https://www.jianshu.com/p/12ab7f45818a
 https://www.cnblogs.com/rayray/p/3729533.html
 
 
-6.手机可以同时安装2个证书
-  (自己电脑和快手mock)
-
 ios装charles证书 
 https://blog.csdn.net/qq_46022251/article/details/121653287
+
+
+
 
 

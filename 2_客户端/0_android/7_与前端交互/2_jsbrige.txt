@@ -1,0 +1,42 @@
+
+
+
+
+一、jsbrige介绍
+机制：通过JS引擎或Webview容器为媒介,实现Native端和Web端双向通信的一种机制。
+
+
+
+
+二、调用
+1.native调用web
+因为 app 是宿主，可以直接访问 H5，所以这种调用比较简单，
+就是在 H5 中曝露一些全局对象（包括方法），然后在原生 app 中调用这些对象。
+
+在WebView里直接调用一个js方法，然后在web端进行监听。
+
+
+2.web端调用native
+这种调用常用有两种方式：
+1.由 h5 发起一个自定义协议请求，app 拦截这个请求后，再由 app 调用 h5 中的回调函数
+2.由 app 向 h5 注入一个全局 js 对象，然后在 h5 直接访问这个对象
+
+2.1 拦截Webview请求的URL Schema
+h5给webweview发送一个自定义的Schema，然后native接受到了后
+对请求的格式进行判断：
+2.1.1如果符合我们自定义的URL Schema，对URL进行解析，
+拿到相关操作、操作，进而调用原生Native的方法
+2.1.2如果不符合我们自定义的URL Schema，我们直接转发，请求真正的服务
+
+2.2 注入api
+(一般用这种)
+native注入js对象，可以让h5调用native的对象
+
+
+https://zhuanlan.zhihu.com/p/438763800
+https://blog.csdn.net/yuzhengfei7/article/details/93468914
+https://blog.csdn.net/qq_42415326/article/details/124625014
+深度原理：https://www.jianshu.com/p/910e058a1d63/
+
+
+

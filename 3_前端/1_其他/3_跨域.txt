@@ -3,7 +3,9 @@
 
 
 
-所谓同源是指，域名，协议，端口均相同，不明白没关系，举个栗子：
+一、跨域介绍
+所谓同源（即指在同一个域）就是两个页面具有相同的协议（protocol），
+是指，域名，协议，端口均相同，不明白没关系，举个栗子：
 
 http://www.123.com/index.html 调用 http://www.123.com/server.php （非跨域）
 
@@ -21,34 +23,7 @@ http://www.123.com/index.html 调用 https://www.123.com/server.php （协议不
 
 
 
-跨域:
-https://segmentfault.com/a/1190000040485198
-
-
-
-如何实现跨域？
-实现跨域有以下几种方案：
-
-服务器端运行跨域 设置 CORS 等于 *；
-在单个接口使用注解 @CrossOrigin 运行跨域；
-使用 jsonp 跨域；
-
-
-
-
-
-
-
-跨域:
-https://www.cnblogs.com/zouhong/p/14366779.html
-https://www.cnblogs.com/deng-cc/p/6322136.html
-https://segmentfault.com/a/1190000040485198
-
-
-所谓同源（即指在同一个域）就是两个页面具有相同的协议（protocol），
-主机（host）端口号（port）
-
-非同源限制
+二、非同源限制
 1.无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB
 2.无法接触非同源网页的 DOM
 3.无法向非同源地址发送 AJAX 请求，即 XHR 请求
@@ -57,6 +32,38 @@ https://segmentfault.com/a/1190000040485198
 1.避免非同源限制:JSONP
 2.跨源资源共享方案
 3.使用 Nginx 反向代理
+
+
+
+
+
+三、JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案
+
+互联网服务离不开用户认证。一般流程是下面这样。
+用户向服务器发送用户名和密码。
+服务器验证通过后，在当前对话（session）里面保存相关数据，
+比如用户角色、登录时间等等。
+服务器向用户返回一个 session_id，写入用户的 Cookie。
+用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。
+服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。
+这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，
+如果是服务器集群，或者是跨域的服务导向架构，
+就要求 session 数据共享，每台服务器都能够读取 session。
+
+
+
+
+
+四、相关网页
+https://segmentfault.com/a/1190000040485198
+https://www.cnblogs.com/zouhong/p/14366779.html
+https://www.cnblogs.com/deng-cc/p/6322136.html
+https://segmentfault.com/a/1190000040485198
+
+
+
+
+
 
 
 

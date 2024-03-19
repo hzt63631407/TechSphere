@@ -8,10 +8,16 @@
 （JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-18.0.1.1.jdk/Contents/Home）
 
 
+
+
+
 2.下载android stduio
 https://blog.csdn.net/liudan302698481/article/details/121137049
 安装地址：
 https://developer.android.google.cn/studio/
+
+
+
 
 
 3.配置环境变量
@@ -22,9 +28,13 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
+
+
 4.可能只有一次生效 需要配置
 .zshrc
 https://www.cnblogs.com/diyishijian/p/11883113.html
+
+
 
 
 5.可能没有.zshrc读写权限
@@ -33,6 +43,7 @@ https://www.likecs.com/show-838145.html
 （重新开启一个终端.zshrc就显示正常）
 
 export PATH=$PATH:/usr/local/mysql/bin
+
 
 
 

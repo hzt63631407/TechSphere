@@ -1,0 +1,40 @@
+
+
+
+
+一、JavaScript的运行环境配置
+1、在html中运行
+这种运行只需要一个文档编辑器+浏览器，就可以实现JS代码的运行。
+因为JavaScript是运行在浏览器中的语言，不需要搭建环境，只需要浏览器就行了。
+（有js的解释器，安卓是webview）
+2、直接运行JS程序
+需要下载安装node.js环境，类似于python、java一样，
+此时运行JS程序不需要html的协助，而可以直接运行。
+例如，cmd中 node xxx.js 即可 ， 也需要配置环境变量。
+
+.py和.text文件python解释器都可以执行，
+理论上html，js，css没有区别，只是后缀区别
+
+
+
+
+二、安装
+nodejs和npm是包含关系，nodejs中含有npm，安装好nodejs，
+cmd输入npm -v会发现npm的版本号，说明npm已经安装好。
+
+This package will install:
+	•	Node.js v18.15.0 to /usr/local/bin/node
+	•	npm v9.5.0 to /usr/local/bin/npm
+
+
+This package has installed:
+	•	Node.js v18.15.0 to /usr/local/bin/node
+	•	npm v9.5.0 to /usr/local/bin/npm
+Make sure that /usr/local/bin is in your $PATH.
+
+
+npm安装：
+https://www.jianshu.com/p/dfdd236b51b6
+
+
+

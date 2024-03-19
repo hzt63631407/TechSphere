@@ -52,3 +52,7 @@ https://www.cnblogs.com/cologne/p/4726024.html
 
 
 
+
+五、adb dump 文件点击
+https://blog.csdn.net/u014520313/article/details/79218897
+https://blog.csdn.net/qq_36350532/article/details/81708339

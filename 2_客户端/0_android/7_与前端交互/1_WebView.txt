@@ -1,0 +1,34 @@
+
+
+
+
+一、WebView介绍
+现在很多APP都内置了Web网页，一些经常变化的页面可以用WebView这种方式去加载网页，
+WebView 是手机中内置了一款高性能 Webkit 内核浏览器，在 SDK 中封装的一个组件。
+不过没有提供地址栏和导航栏，只是单纯的展示一个网页界面。
+
+
+Android WebView在Android平台上是一个特殊的View，是移动端中的一个控件
+基于webkit引擎、展现web页面的控件，这个类可以被用来在你的app中仅仅显示一张在线的网页，
+还可以用来开发浏览器。
+WebView内部实现是采用渲染引擎来展示view的内容，提供网页前进后退，
+网页放大，缩小，搜索。Android的Webview在低版本和高版本采用了不同的webkit版本内核，
+4.4后直接使用了Chrome。
+
+
+WebView是用于展示网络请求后的结果，也就是将url网络请求的结果展示在里面。
+1、显示和渲染Web页面。
+2、直接使用html文件（网络上或本地assets中）作布局。
+3、可和JavaScript交互调用。
+
+
+WebView 可以简单理解为页面里的 iframe 。
+原生 app 与 WebView 的交互可以简单看作是页面与页面内 iframe 页面进行的交互。
+就如页面与页面内的iframe共用一个Window一样，原生与 WebView 也共用了一套原生的方法
+
+
+
+
+
+
+

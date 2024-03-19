@@ -1,6 +1,8 @@
 
 
-1.七层/四层协议
+
+
+一.七层/四层协议
 osi网络模型
 1.应用层:http，ftp，dns
 2.表示层:ascii
@@ -14,33 +16,6 @@ osi网络模型
 
 
 
-TCP的优点：
-可靠，稳定 TCP的可靠体现在TCP在传递数据之前，会有三次握手来建立连接，
-而且在数据传递时，有确认、窗口、重传、拥塞控制机制，
-在数据传完后，还会断开连接用来节约系统资源。
-
-缺点：
-慢，效率低，占用系统资源高
-
-
-UDP的优点：
-快，比TCP稍安全 UDP没有TCP的握手、确认。
-
-UDP的缺点：
-不可靠，不稳定 因为UDP没有TCP那些可靠的机制，
-在数据传递时，如果网络质量不好，就会很容易丢包。
-
-
-https://www.cnblogs.com/imyalost/p/6139191.html
-https://www.cnblogs.com/moonbaby/p/10515236.html
-https://www.cnblogs.com/harder/p/4345665.html
-https://zhuanlan.zhihu.com/p/33889997
-
-
-
-
-
-
 
 2.数据包传输
 以太网包首部 ip包首部 tcp包首部 数据  -》 以太网包数据
@@ -49,10 +24,8 @@ https://zhuanlan.zhihu.com/p/33889997
 
                     tcp包首部 数据 -》  tcp包数据
 
-每个分层都会对所发送的数据附加一个首部，首部中包含该层必要的信息；通常为协议提供的信息为包首部，
-所要发送的内容为数据
-
-
+每个分层都会对所发送的数据附加一个首部，首部中包含该层必要的信息；
+通常为协议提供的信息为包首部，所要发送的内容为数据
 
 
 
@@ -76,3 +49,14 @@ https://zhuanlan.zhihu.com/p/33889997
 包长度 int 型
 消息体 byte[]
 包总长度为 1 + 4 +  消息体.getBytes().length
+
+
+
+
+
+
+二、相关网址
+https://www.cnblogs.com/imyalost/p/6139191.html
+https://www.cnblogs.com/moonbaby/p/10515236.html
+https://www.cnblogs.com/harder/p/4345665.html
+https://zhuanlan.zhihu.com/p/33889997

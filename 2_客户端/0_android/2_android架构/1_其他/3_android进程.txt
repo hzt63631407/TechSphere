@@ -1,0 +1,20 @@
+
+
+
+
+一、Android将进程分为6个等级,它们按优先级顺序由高到低依次是:
+1.前台进程( FOREGROUND_APP)
+2.可视进程(VISIBLE_APP )
+3.次要服务进程(SECONDARY_SERVER )
+4.后台进程 (HIDDEN_APP)
+5.内容供应节点(CONTENT_PROVIDER)
+6.空进程(EMPTY_APP)
+
+
+
+二、app启动流程
+1.Luncher进程收到消息，通过Binder发消息给system_server。
+2.system_server的ams经过处理之后调用Process.start，再发给Zygote。
+3.Zygote收到之后，fork出app进程，并执行ActivityThread.main()方法。
+4.ActivityThread绑定到ams线程上。
+5.创建application对象，并调用onCreate()方法，

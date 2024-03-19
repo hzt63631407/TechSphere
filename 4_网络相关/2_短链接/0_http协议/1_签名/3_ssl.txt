@@ -1,5 +1,8 @@
 
-SSL（Secure Sockets Layer）主要运行在应用层（Application Layer）和
+
+
+
+一、SSL（Secure Sockets Layer）主要运行在应用层（Application Layer）和
 传输层（Transport Layer）之间，它是为网络通信提供安全和数据完整性的一种安全协议。
 
 SSL，全称为Secure Sockets Layer，是一种安全协议，目的是为网络通信提供安全及数据完整性保障。
@@ -17,7 +20,8 @@ ssl即有通信加密，也有内容加密。
 
 
 
-http+ssl=https 可以这么理解吗？
+
+二、http+ssl=https 可以这么理解吗？
 
 是的，你的理解是正确的。
 

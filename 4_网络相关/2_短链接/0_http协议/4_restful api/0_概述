@@ -1,8 +1,11 @@
 
 
-RestFul是一种网络应用程序的设计风格和开发方式，基于HTTP
 
-restful是一种接口设计规范：减少前后端开发人员沟通成本。
+
+一、RestFul是一种网络应用程序的设计风格和开发方式，基于HTTP。
+是一种接口设计规范：减少前后端开发人员沟通成本。
+
+
 与http不同之处
 1.restful使用http code代表状态
 http无论正确或者错误都会返回200，但是restful不一样，
@@ -21,4 +24,6 @@ DELETE 方式请求 api/state  删除数据
 1、看URL就知道要什么
 2、看http method就知道干什么
 3、看http status code就知道结果如何
+
+
 

@@ -2,27 +2,12 @@
 
 
 
-个人总结：
-jacoco的原理其实就是在原有的代码上加标记或者探针，类似打点，
-调用了函数，方法。
+一、jacoco原理
+jacoco的原理其实就是在原有的代码上加标记或者探针，类似打点，调用了该函数，方法。
 
 标记这行代码是否被执行，或者这个if，else是否执行了。
 分支覆盖：if 和switch 语句算作分支覆盖率。
 
-增量的代码覆盖率
-（我们可以打带有统计覆盖率的插桩包）
-
-
-ios
-这里我是基于XcodeCoverage这个工具实现的，
-目前这个工具只支持Objective-C的覆盖率数据采集，
-暂时不支持Swift。
-https://developer.aliyun.com/article/928264
-https://testerhome.com/topics/8468
-
-
-
-其他：
 JaCoCo的技术内核
 JaCoCo覆盖率的采集，主要是通过插装及装点的执行来收集程序运行的特征数据。
 JaCoCo的插装，是通过agent在字节码中插入boolean[]数组，来标记每句可执行代码，
@@ -31,10 +16,12 @@ JaCoCo的插装，是通过agent在字节码中插入boolean[]数组，来标记
 https://article.itxueyuan.com/KA7kK1
 
 
+
+
+二、精准测试
 on-the-fly模式(运行时插桩)
 offline模式（编译时插桩）
 https://www.cnblogs.com/juno3550/p/16400197.html
-#%E7%B2%BE%E5%87%86%E6%B5%8B%E8%AF%95%E4%BB%8B%E7%BB%8D
 https://blog.csdn.net/weixin_43291944/article/details/118331335
 
 
@@ -54,8 +41,15 @@ https://testerhome.com/topics/20594
 https://www.doc88.com/p-14559791658768.html
 
 
+
+
+三、ios覆盖率
+这里我是基于XcodeCoverage这个工具实现的，
+目前这个工具只支持Objective-C的覆盖率数据采集，
+暂时不支持Swift。
+https://developer.aliyun.com/article/928264
+https://testerhome.com/topics/8468
+
+
 其他代码统计率工具：
 https://www.jianshu.com/p/026c6dc4ba7f
-
-
-

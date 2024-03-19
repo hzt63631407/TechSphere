@@ -10,6 +10,8 @@ https://blog.csdn.net/u013072756/article/details/115182258
 
 
 
+
+
 二、、引入CDN之后，用户访问网站一般经历以下步骤：
 当用户点击网站页面上的内容URL，先经过本地DNS系统解析，如果本地DNS服务器没有相应域名的缓存，
 则本地DNS系统会将域名的解析权交给CNAME指向的CDN专用DNS服务器。
@@ -30,7 +32,7 @@ CDN全局负载均衡设备根据用户IP地址，以及用户请求的URL，
 
 
 
-二、cdn的缓存
+三、cdn的缓存
 https://blog.csdn.net/woleigequshawanyier/article/details/86369933
 1.CDN往往被用来存放静态资源，当作缓存使用。
 （所谓“静态资源”，就是像 JS、CSS、图片等不需要业务服务器进行计算即得的资源）

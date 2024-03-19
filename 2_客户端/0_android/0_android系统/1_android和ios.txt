@@ -2,9 +2,7 @@
 
 
 
-https://blog.csdn.net/weixin_44330336/article/details/121520665
-https://baijiahao.baidu.com/s?id=1736150689748196650&wfr=spider&for=pc
-Q：安卓和ios的不同
+一：安卓和ios的不同
 1.安卓就是机型或者说品牌比较多 华为 oppo vivo 小米 魅族  联想 三星 一加
 (安卓是开源，能够进行二次开发，所以miui，emui这些系统)(只是修改了ui)
 2.程序运行的机制不同，苹果可以开很多个app，在后台的app几乎不会占用内存。
@@ -16,3 +14,5 @@ Q：安卓和ios的不同
 IOS的消息推送渠道由苹果官方提供。
 
 
+https://blog.csdn.net/weixin_44330336/article/details/121520665
+https://baijiahao.baidu.com/s?id=1736150689748196650&wfr=spider&for=pc

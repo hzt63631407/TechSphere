@@ -1,0 +1,74 @@
+
+
+
+
+一、存储：
+存储位置：存储在内存
+存储方式：key value结构
+
+
+
+二、存储数据类型：
+string（字符串）
+hash（哈希）
+list（列表）
+set（集合）
+sort set （有序集合）
+
+
+string：结构常用来缓存用户信息，
+通常将用户信息结构体使用JSON序列化成字符串，内部结构类似于Java的ArrayList
+set key value ，get key
+1、缓存：经常读的数据
+2、计数：诸如统计点击数等应用。
+由于单线程，可以避免并发问题，保证不会出错，而且100%毫秒级性能。
+3、共享Session（因为后端服务器是单台）
+4.分布式锁：分布式场景下，无法使用单机环境下的锁来对多个节点上的进程进行同步。
+可以使用 Redis 自带的 SETNX 命令 实现分布式锁（1）
+
+
+hash：
+hset hash field value
+Redis hash 是一个 string 类型的 field（字段）和 value（值）的映射表，
+Redis的hash相当于Java的HashMap。
+1、该类型非常适合于存储对象的信息（结构体信息）。如一个用户有姓名，密码，年龄等信息。
+
+可以是hash结构，即嵌套的key value
+hset u1001 userid 10001
+hset u1001 name tony
+hget u1001 uname 只查询部分
+{u1001:
+    {userid:10001,
+    name tony,
+    }
+}
+
+
+list：可以向Redis列表的头部或尾部添加元素。
+lpush key value1 value2... ，pop key
+1、简单的消息队列：我们也可以利用List来实现一个队列机制，
+比如：到货通知、邮件发送之类的 需求，不需要高可靠，
+但是会带来非常大的DB压力，完全可以用List来完成异步解耦；
+
+
+Set 是 String 类型的无序集合
+sdlff  key1    key2，scard key
+1、好友关系：在微博应用中，可以将一个用户所有的关注人存在一个集合中，
+将其所有粉丝存在一个集合。
+2、好友关系：Redis还为集合提供了求交集、并集、差集等操作，
+可以非常方便的实现如共同关注、共同喜好、二度好友等功能，对上面的所有集合操作，
+
+
+sort set ：（有序集合类型）
+zcard key
+1、排行榜：排行榜就是一个有序集合
+
+
+
+
+三、使用场景统计：
+https://baijiahao.baidu.com/s?id=1710209756473607320&wfr=spider&for=pc
+
+
+
+

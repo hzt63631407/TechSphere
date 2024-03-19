@@ -1,10 +1,13 @@
 
+
+
+
 https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&mid=2648979521&idx=2&sn=16f5c3d95b28d3d7104f66105e0cb6d5&chksm=f25065a1c527ecb740b5e4f16fbaac44e4b01d060a0bddefec602f1c17f74fb7a4284de2eaaa&scene=27
 
 加密是签名中的一环。
 
 
-1.信息摘要算法
+一.信息摘要算法
 一段信息，经过摘要算法得到一串哈希值，就是摘要(dijest)。
 常见的摘要算法有MD5、SHA1、SHA256、SHA512等。
 关于摘要，有几点需要你明白的：
@@ -82,5 +85,5 @@ CA 就会使用散列算法对.csr里的明文信息先做一个HASH，得到一
 CA 把这个证书返回给申请人。
 
 
-数字签名：
-https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&mid=2648979521&idx=2&sn=16f5c3d95b28d3d7104f66105e0cb6d5&chksm=f25065a1c527ecb740b5e4f16fbaac44e4b01d060a0bddefec602f1c17f74fb7a4284de2eaaa&scene=27
+
+

@@ -3,7 +3,6 @@
 
 
 
-code diff：
-https://blog.csdn.net/hodoliang/article/details/80944632/
-https://blog.csdn.net/rainbowzhouj/article/details/119301580
-简单来说就是比对相同接口在不同版本/不同环境下面的返回内容是否符合预期
+一、diff测试与流量回放测试
+https://blog.csdn.net/sinat_33718563/article/details/118732382
+简单来说就是比对相同的接口请求在不同版本/不同环境下面的返回内容是否符合预期，是否有不同。

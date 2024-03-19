@@ -1,0 +1,24 @@
+
+
+
+
+https://www.imooc.com/video/15991
+
+运维课程：
+https://ke.qq.com/course/266656/14071734496137632#term_id=100314597
+
+
+Devops 技术栈，一系列方法的统称，用于软件开发，运维，
+包括：git 持续集成。
+
+
+devops一系列方法的统称
+通过一系列软件工具，更好的支持软件研发各个环境的工作
+git jenkins sonar 涉及到部分docker k8s 都可以称为devops技术栈
+性能测试：用到的环境部署、监控软件
+
+
+
+
+
+

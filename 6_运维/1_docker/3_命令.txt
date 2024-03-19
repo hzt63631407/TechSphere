@@ -1,0 +1,25 @@
+
+
+
+
+Q：你了解过docker吗？
+实际过程中没有使用过，但是有了解过，一个完全隔离的环境，
+拉去镜像，然后创建容器。
+docker是一个软件,docker类似虚拟机，比虚拟机更轻量级
+
+
+而且docker的一些命令我是熟悉的。
+systemctl start docker
+systemctl stop docker
+docker pull 镜像名
+docker run 镜像名
+
+
+docker version
+docker run -it -d --name redis001 redis:5.0.5 /bin/bash
+
+#3.查看已运行容器
+docker ps
+
+
+

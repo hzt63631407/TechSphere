@@ -1,0 +1,69 @@
+
+
+
+
+一、热修复就是通过发布一个插件，使APP运行的时候加载插件里面的代码，
+从而解决缺陷，并且对用户来说是无感的（有时候可能需要重启一下APP）。
+
+
+
+
+
+二、热更新方案有三种
+1.类加载方案，我们一般用类加载的方案，重启生效
+2.底层替换方案
+3.Instant Run
+
+
+
+
+
+三、热修复测试
+测试重点：
+
+冷启动、查看是否修复
+热启动、查看是否修复
+
+1.查看版本号是否有修改。
+2.用adb命令进入文件,查看文件是否下载下来了。
+
+
+
+
+
+四、原理：
+简单版：
+根据类加载机制，可以知道热修复的原理就是将补丁包dex文件放到dexElements数组靠前的位置，
+这样在加载class时，优先找到补丁包中的dex文件，
+加载到class之后就不再寻找，从而原来apk里同名的类就不会再使用，达到修复的目的
+
+对于热更新的问题就是了解两个点的问题：
+如何加载补丁包，也就是如何加载dex 文件的过程
+（dex是补丁包，更改的文件都在补丁包中）
+修复后的类如何替换掉旧的类
+
+
+具体过程：
+安卓的就是类加载器（ClassLoader）
+
+ClassLoader 的加载过程，其中一个环节就是调用DexPathList的findClass 方法
+findClass 方法：
+1.当要查找类时，会遍历dexElements，
+2.每个dex文件对应一个Element ，多个Element 组成了有序的Element 数组dexElements。
+3.如果在Element 中（dex 文件）找到了该类就返回
+4.如果没有找到就接着在下一个Elment中进行查找
+5.将Bug类Key.class进行修改，再将Key.class打包成包含dex的补丁包Patch.jar
+6.通过反射修改类加载中的dexElements，将补丁包放在Elment 数组dexElements 的第一个元素
+7.在类加载的时候先加载到的是Patch.dex中的修复后的Key.class
+（根据类加载的双亲委托机制，如果此类加载过就不会再加载），这样就做到替换之前存在Bug的Key.class
+
+（双亲委派机制，如果已经加载了类的字节码文件（.class)，就不再加载第二个文件。
+如果没有，就加载父类的。）
+
+https://blog.csdn.net/hjiangshujing/article/details/103941599
+https://blog.csdn.net/zenmela2011/article/details/125641196
+https://blog.csdn.net/ljx1400052550/article/details/115515676
+https://blog.csdn.net/qq_39799899/article/details/102478355
+
+
+

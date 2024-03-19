@@ -1,0 +1,14 @@
+
+
+
+
+一、对于日志来说，最常见的需求就是收集、存储、查询、展示，开源社区正好有相对应的开源项目：
+1.logstash（收集）、
+2.elasticsearch（存储+搜索）、
+3.kibana（展示）
+我们将这三个组合起来的技术称之为ELKStack，
+所以说ELKStack指的是Elasticsearch、Logstash、Kibana技术栈的结合。
+
+https://blog.csdn.net/u010739163/article/details/82022327/
+
+
