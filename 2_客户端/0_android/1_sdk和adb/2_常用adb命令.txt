@@ -2,7 +2,7 @@
 
 
 
-一、基础abd命令
+一、基础adb命令
 adb devices
 adb install
 adb uninstall

@@ -28,3 +28,9 @@ https://blog.csdn.net/bocai_xiaodaidai/article/details/103958468
 websocket可以通过网页访问
 grpc和dubbo不可以
 
+
+
+https://blog.csdn.net/qq_41577750/article/details/122057468
+
+定义一个服务，指定其能够被远程调用的方法（包含参数和返回类型）。
+在服务端实现这个接口，并运行一个gRPC服务器来处理客户端调用。

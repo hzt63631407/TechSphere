@@ -1,3 +1,7 @@
+
+
+
+
 （1）.检查下电脑是否安装有git
 在终端输入git。如下图所示，就是已安装。
 如未安装，会提示“The program 'git' is currently not installed.”。
@@ -38,13 +42,6 @@ https://blog.csdn.net/q343509740/article/details/79653216
 # 7.查看本机sshkey
 cd ~/.ssh
 cat id_rsa.pub
-
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDvg7n8n/nFd0pzkUNX5k3WTgjIKyPT6GYeVdFVXK9Fo/W8u+YI/5feaPx2k6EM4/
-A28r5U29MK4DyDcF/MxieTTIJTTS9N61MyXYgE70bBcCueeXwjiEZtvbwbzKARw+bGzzB5RWmUd8uA5O6k2wWmq7Y/
-6sMaT0ugMs/thBsRCbetPaM2qrsrd/aaqr4IKsDSVSAyECMl8W/gv0Uo8Z5DARv3lGUuGE8mFiKvJX+ZcCjrFMw5lo2Tho9/
-UIYYOwufw4CSuEaho3Ja8Wbgs+bpZJj1mrL9NovSE6YNt+UzTHgv1u1IxAFr4BPSkYg2noooDdg657Cncm4XYKbiJ0b7MK2xqSBgLK87YFRHmfAXwwEQKsK8AxpB0NPMpByht/
-h4RefJJkuIeTmVyAdI6hnhkwo44o/HZ5EJ/xBNFYO0xYFq65rs/wj1DOMeN6zC7TDqSzxbBnEMW4fs1wzSyReknrqjyJnWauDU8osJl89azTHZ0rdDYCEQ+aknZiSg6ORzuL6Hc7C8e7cdz6FbbC0WsbPrzuBzm/
-Z5Xt0y9qxWtTflnOEPIf7nUZmNYnc+RGCAcsCcoaKAhe4yMWL7delhYnJc5tI7DM+DhuP6ipM7gx+yHwGpofLefYwEqgBqas18Ces2YuXTrv5vtFN89uTZWLbBXQ6nYu2te2pE2Yd68w== huangzetao@kuaishou.com
 
 （3）.本地创建git仓库（不需要）
 git克隆基本上是一个组合：

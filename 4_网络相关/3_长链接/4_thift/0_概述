@@ -1,0 +1,8 @@
+
+
+
+
+Thrift是基于socket的，通过tcp协议来实现，即应用层协议
+https://www.jianshu.com/p/db6524f16509
+
+
